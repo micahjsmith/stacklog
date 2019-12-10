@@ -11,9 +11,7 @@ with open('README.md') as readme_file:
 with open('HISTORY.md') as history_file:
     history = history_file.read()
 
-install_requires = [
-    'six',
-]
+install_requires = []
 
 setup_requires = [
     'pytest-runner>=2.11.1',

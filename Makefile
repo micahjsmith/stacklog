@@ -56,13 +56,8 @@ test-all: ## run tests on every Python version with tox
 
 .PHONY: fix-lint
 fix-lint: ## fix lint issues using autoflake, autopep8, and isort
-	find stacklog -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables
-	autopep8 --in-place --recursive --aggressive stacklog
+	autopep8 --in-place --recursive --aggressive stacklog tests
 	isort --apply --atomic --recursive stacklog
-
-	find tests -name '*.py' | xargs autoflake --in-place --remove-all-unused-imports --remove-unused-variables
-	autopep8 --in-place --recursive --aggressive tests
-	isort --apply --atomic --recursive tests
 
 .PHONY: coverage
 coverage: ## check code coverage quickly with the default Python
