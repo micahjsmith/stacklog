@@ -3,22 +3,65 @@
 
 """Tests for `stacklog` package."""
 
-import unittest
+from __future__ import print_function
 
-# from stacklog import stacklog
+import logging
+
+import pytest
+
+from stacklog import stacklog
 
 
-class TestStacklog(unittest.TestCase):
-    """Tests for `stacklog` package."""
+def test_logs_success(caplog):
+    """On normal resolution, stack with DONE is logged"""
+    msg = 'Running'
 
-    def setUp(self):
-        """Set up test fixtures, if any."""
+    with stacklog(logging.critical, msg):
         pass
 
-    def tearDown(self):
-        """Tear down test fixtures, if any."""
+    expected = ['Running...', 'Running...DONE']
+    actual = caplog.messages
+    assert actual == expected
+
+
+def test_logs_failure(caplog):
+    """On error, stack with FAILURE is logged"""
+    msg = 'Running'
+    e = ValueError
+
+    with pytest.raises(e):
+        with stacklog(logging.critical, msg):
+            raise e
+
+    expected = ['Running...', 'Running...FAILURE']
+    actual = caplog.messages
+    assert actual == expected
+
+
+def test_logs_custom_condition(caplog):
+    """On custom error, stack with SKIPPED (e.g.) is logged"""
+    msg = 'Running'
+    e = NotImplementedError
+    condition = (e, 'SKIPPED')
+
+    with pytest.raises(e):
+        with stacklog(logging.critical, msg, conditions=[condition]):
+            raise e
+
+    expected = ['Running...', 'Running...SKIPPED']
+    actual = caplog.messages
+    assert actual == expected
+
+
+def test_decorator(caplog):
+    msg = 'Running'
+
+    @stacklog(logging.critical, msg)
+    def run():
         pass
 
-    def test_000_something(self):
-        """Test something."""
-        self.assertTrue(True)
+    run()
+
+    expected = ['Running...', 'Running...DONE']
+    actual = caplog.messages
+    assert actual == expected
