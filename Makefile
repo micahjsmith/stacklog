@@ -87,11 +87,11 @@ dist: clean ## builds source and wheel package
 
 .PHONY: test-publish
 test-publish: dist ## package and upload a release on TestPyPI
-	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	twine upload --repository testpypi dist/*
 
 .PHONY: publish
 publish: dist ## package and upload a release
-	twine upload dist/*
+	twine upload --repository pypi dist/*
 
 .PHONY: clean
 clean: clean-build clean-pyc clean-test clean-coverage clean-docs ## remove all build, test, coverage, docs and Python artifacts

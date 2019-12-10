@@ -4,18 +4,19 @@
 
 # stacklog
 
-Log stack-structured log messages
+Stack log messages
 
 - Documentation: https://micahjsmith.github.io/stacklog
 - Homepage: https://github.com/micahjsmith/stacklog
 
 ## Overview
 
-Stacklog is a tiny Python library to stack log messages. A stack-structured log is an
-approach to logging in which log messages are (conceptually) pushed onto a stack and emitted
-only when the pusher returns. Stacklog provides a single method, `stacklog`, which serves as
-either a decorator or a context manager. This is exceptionally useful in small projects or
-one-off scripts.
+Stacklog is a tiny Python library to stack log messages.
+
+A stack-structured log is an approach to logging in which log messages are (conceptually)
+pushed onto a stack and emitted only when the pusher returns. Stacklog provides a single
+method, `stacklog`, which serves as either a decorator or a context manager. This is
+exceptionally useful in small projects or one-off scripts.
 
 This is illustrated best with an example:
 
