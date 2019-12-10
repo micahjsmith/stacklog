@@ -67,7 +67,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
-    description='Log stack-structured log messages',
+    description='Stack log messages',
     extras_require={
         'test': tests_require,
         'dev': development_requires + tests_require,
@@ -78,7 +78,7 @@ setup(
     long_description=readme + '\n\n' + history,
     long_description_content_type='text/markdown',
     include_package_data=True,
-    keywords='stacklog stacklog stacklog',
+    keywords='stacklog',
     name='stacklog',
     packages=find_packages(include=['stacklog', 'stacklog.*']),
     python_requires='>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*',
@@ -86,6 +86,6 @@ setup(
     test_suite='tests',
     tests_require=tests_require,
     url='https://github.com/micahjsmith/stacklog',
-    version='0.1.0',
+    version='1.0.0',
     zip_safe=False,
 )
