@@ -44,11 +44,11 @@ class stacklog:
         **kwargs: kwargs to log method
     """
 
-    def __init__(self, method, message, *args, conditions=None, **kwargs):
+    def __init__(self, method, message, *args, **kwargs):
         self.method = method
         self.message = str(message)
         self.args = args
-        self.conditions = conditions
+        self.conditions = kwargs.pop('conditions', None)  # py2 compat
         self.kwargs = kwargs
 
     def _log(self, suffix=''):
