@@ -6,10 +6,12 @@
 from __future__ import print_function
 
 import logging
+import re
+import time
 
 import pytest
 
-from stacklog import stacklog
+from stacklog import stacklog, stacktime
 
 
 def test_logs_success(caplog):
@@ -65,3 +67,18 @@ def test_decorator(caplog):
     expected = ['Running...', 'Running...DONE']
     actual = caplog.messages
     assert actual == expected
+
+
+def test_stacktime(capsys):
+    msg = 'Running'
+
+    @stacktime(print, msg, unit='ns')
+    def run():
+        time.sleep(1e-3)
+
+    run()
+
+    expected = ['Running...', r'Running...DONE in [\d.]+ ns']
+    actual = capsys.readouterr().out.split('\n')
+    for e, a in zip(expected, actual):
+        assert re.match(e, a)

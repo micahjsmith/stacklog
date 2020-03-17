@@ -6,10 +6,17 @@ __author__ = 'Micah Smith'
 __email__ = 'micahjsmith@gmail.com'
 __version__ = '1.0.0'
 
+import time
 
 from collections import defaultdict
 from functools import wraps
 from inspect import getfullargspec
+
+from ._vendored import time_formatters
+
+
+SUCCESS='DONE'
+FAILURE='FAILURE'
 
 
 class stacklog:
@@ -154,11 +161,11 @@ def begin(stacklogger):
 
 
 def succeed(stacklogger):
-    return stacklogger.log(suffix='DONE')
+    return stacklogger.log(suffix=SUCCESS)
 
 
 def fail(stacklogger):
-    return stacklogger.log(suffix='FAILURE')
+    return stacklogger.log(suffix=FAILURE)
 
 
 def match_condition(exc_type):
@@ -167,3 +174,32 @@ def match_condition(exc_type):
 
 def log_condition(suffix):
     return lambda stacklogger: stacklogger.log(suffix=suffix)
+
+
+### custom stackloggers
+
+def stacktime(*args, **kwargs):
+    unit = kwargs.pop('unit', 'auto')  # py2 compat
+    stacklogger = stacklog(*args, **kwargs)
+
+    start = None
+    duration = None
+
+    def on_enter(_):
+        global start
+        start = time.time()
+
+    def on_exit(_):
+        global start, duration
+        duration = time_formatters[unit](time.time() - start).lstrip()
+
+    def on_success(s):
+        global duration
+        suffix = SUCCESS + ' in ' + duration
+        s.log(suffix=suffix)
+
+    stacklogger.on_enter(on_enter)
+    stacklogger.on_exit(on_exit)
+    stacklogger.on_success(on_success)
+
+    return stacklogger
