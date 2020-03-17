@@ -183,6 +183,13 @@ def log_condition(suffix):
 # ---- custom stackloggers ------
 
 def stacktime(*args, **kwargs):
+    """Stack log messages with timing information
+
+    The same arguments apply as to stacklog, with one additional kwarg.
+
+    Args:
+        unit (str): one of 'auto', 'ns', 'mks', 'ms', 's'.
+    """
     unit = kwargs.pop('unit', 'auto')  # py2 compat
     stacklogger = stacklog(*args, **kwargs)
 
