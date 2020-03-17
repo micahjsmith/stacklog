@@ -19,7 +19,7 @@ exceptionally useful in small projects or one-off scripts.
 
 This is illustrated best with an example:
 
-```
+```python
 with stacklog(print, 'Running some code'):
     with stacklog(print, 'Running some other code'):
         pass
@@ -27,7 +27,7 @@ with stacklog(print, 'Running some code'):
 
 This produces the following logging output:
 
-```
+```shell
 Running some code...
 Running some other code...
 Running some other code...DONE
@@ -41,7 +41,7 @@ the return status, one of `DONE` or `FAILURE`. That's pretty much it.
 
 stacklog has been developed and tested on Python 2.7 and 3.4+.
 
-```bash
+```shell
 pip install stacklog
 ```
 
@@ -82,7 +82,7 @@ context managers.
 
 Here is the above example using the stacklog as a decorator:
 
-```
+```python
 @stacklog(logging.info, 'Running a')
 def a():
     raise Exception
@@ -96,7 +96,7 @@ b()
 
 This produces logging output:
 
-```
+```shell
 INFO:root:Running b...
 INFO:root:Running a...
 INFO:root:Running a...FAILURE
@@ -107,7 +107,7 @@ INFO:root:Running b...FAILURE
 
 Here is another example using stacklog as a context manager:
 
-```
+```pycon
 >>> with stacklog(logging.info, 'Running some code'):
 ...     do_something()
 ...
@@ -121,7 +121,7 @@ A *condition* is a tuple `exception, status`. If the provided exception is raise
 execution of the provided code, the provided status is logged instead of the default
 `FAILURE`.
 
-```
+```pycon
 >>> with stacklog(logging.info, 'Running some code', conditions=[(NotImplementedError,
 'SKIPPED')]):
 ...     raise NotImplementedError
