@@ -7,6 +7,7 @@ __email__ = 'micahjsmith@gmail.com'
 __version__ = '1.0.0'
 
 
+from collections import defaultdict
 from functools import wraps
 from inspect import getfullargspec
 
@@ -52,7 +53,7 @@ class stacklog:
         conditions = kwargs.pop('conditions', [])  # py2 compat
         self.kwargs = kwargs
 
-        self._callbacks = {}
+        self._callbacks = defaultdict(list)
         self._conditions = []
         self._condition_index = None
 
@@ -71,27 +72,36 @@ class stacklog:
         self.method(self.message + '...' + suffix, *self.args, **self.kwargs)
 
     def on_begin(self, func):
-        self._on('begin', func)
+        self._on(Event.BEGIN, func)
 
     def on_success(self, func):
-        self._on('success', func)
+        self._on(Event.SUCCESS, func)
 
     def on_failure(self, func):
-        self._on('failure', func)
+        self._on(Event.FAILURE, func)
 
     def on_condition(self, match, func):
         self._conditions.insert(0, (match, func))
 
-    def _on(self, event, func):
-        self._callbacks[event] = func
+    def on_enter(self, func):
+        self._on(Event.ENTER, func, clear=False)
+
+    def on_exit(self, func):
+        self._on(Event.EXIT, func, clear=False)
+
+    def _on(self, event, func, clear=True):
+        if clear:
+            self._callbacks[event].clear()
+        self._callbacks[event].append(func)
 
     def _signal(self, condition):
         if condition in self._callbacks:
-            self._callbacks[condition](self)
+            for func in self._callbacks[condition]:
+                func(self)
 
-    def _call_with_args(self, method, *args):
-        nargs = len(getfullargspec(method).args)
-        return method(*args[:nargs])
+    def _call_with_args(self, func, *args):
+        nargs = len(getfullargspec(func).args)
+        return func(*args[:nargs])
 
     def _matches_exception(self, exc_type, exc_val, exc_tb):
         for i, (match, _) in enumerate(self._conditions):
@@ -114,18 +124,29 @@ class stacklog:
         return wrapper
 
     def __enter__(self):
-        self._signal('begin')
+        self._signal(Event.ENTER)
+        self._signal(Event.BEGIN)
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        self._signal(Event.EXIT)
+
         if exc_type is None:
-            self._signal('success')
+            self._signal(Event.SUCCESS)
         elif self._matches_exception(exc_type, exc_val, exc_tb):
             self._handle_exception(exc_type, exc_val, exc_tb)
         else:
-            self._signal('failure')
+            self._signal(Event.FAILURE)
 
         return False
+
+
+class Event:
+    ENTER = 'enter'
+    BEGIN = 'begin'
+    EXIT = 'exit'
+    SUCCESS = 'success'
+    FAILURE = 'failure'
 
 
 def begin(stacklogger):
