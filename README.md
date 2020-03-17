@@ -6,7 +6,6 @@
 
 Stack log messages
 
-- Documentation: https://micahjsmith.github.io/stacklog
 - Homepage: https://github.com/micahjsmith/stacklog
 
 ## Overview
