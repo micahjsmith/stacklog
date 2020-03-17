@@ -8,6 +8,7 @@ __version__ = '1.0.0'
 
 
 from functools import wraps
+from inspect import getfullargspec
 
 
 class stacklog:
@@ -48,29 +49,60 @@ class stacklog:
         self.method = method
         self.message = str(message)
         self.args = args
-        self.conditions = kwargs.pop('conditions', None)  # py2 compat
+        conditions = kwargs.pop('conditions', [])  # py2 compat
         self.kwargs = kwargs
 
-    def _log(self, suffix=''):
+        self._callbacks = {}
+        self._conditions = []
+        self._condition_index = None
+
+        # default behavior
+        self.on_begin(begin)
+        self.on_success(succeed)
+        self.on_failure(fail)
+
+        for exc_type, suffix in conditions:
+            self.on_condition(
+                match_condition(exc_type),
+                log_condition(suffix)
+            )
+
+    def log(self, suffix=''):
         self.method(self.message + '...' + suffix, *self.args, **self.kwargs)
 
-    _begin = _log
+    def on_begin(self, func):
+        self._on('begin', func)
 
-    def _succeed(self):
-        self._log(suffix='DONE')
+    def on_success(self, func):
+        self._on('success', func)
 
-    def _fail(self):
-        self._log(suffix='FAILURE')
+    def on_failure(self, func):
+        self._on('failure', func)
 
-    def _matches_condition(self, exc_type):
-        return self.conditions is not None and any(
-            issubclass(exc_type, e) for e, _ in self.conditions)
+    def on_condition(self, match, func):
+        self._conditions.insert(0, (match, func))
 
-    def _log_condition(self, exc_type):
-        for e, suffix in self.conditions:
-            if issubclass(exc_type, e):
-                self._log(suffix=suffix)
-                return
+    def _on(self, event, func):
+        self._callbacks[event] = func
+
+    def _signal(self, condition):
+        if condition in self._callbacks:
+            self._callbacks[condition](self)
+
+    def _call_with_args(self, method, *args):
+        nargs = len(getfullargspec(method).args)
+        return method(*args[:nargs])
+
+    def _matches_exception(self, exc_type, exc_val, exc_tb):
+        for i, (match, _) in enumerate(self._conditions):
+            if self._call_with_args(match, exc_type, exc_val, exc_tb):
+                self._condition_index = i
+                return True
+        return False
+
+    def _handle_exception(self, exc_type, exc_val, exc_tb):
+        func = self._conditions[self._condition_index][1]
+        self._call_with_args(func, self, exc_type, exc_val, exc_tb)
 
     def __call__(self, func):
 
@@ -82,14 +114,35 @@ class stacklog:
         return wrapper
 
     def __enter__(self):
-        self._begin()
+        self._signal('begin')
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if exc_type is None:
-            self._succeed()
-        elif self._matches_condition(exc_type):
-            self._log_condition(exc_type)
+            self._signal('success')
+        elif self._matches_exception(exc_type, exc_val, exc_tb):
+            self._handle_exception(exc_type, exc_val, exc_tb)
         else:
-            self._fail()
+            self._signal('failure')
 
         return False
+
+
+def begin(stacklogger):
+    return stacklogger.log()
+
+
+def succeed(stacklogger):
+    return stacklogger.log(suffix='DONE')
+
+
+def fail(stacklogger):
+    return stacklogger.log(suffix='FAILURE')
+
+
+def match_condition(exc_type):
+    return lambda _exc_type: issubclass(exc_type, _exc_type)
+
+
+def log_condition(suffix):
+    return lambda stacklogger: stacklogger.log(suffix=suffix)
