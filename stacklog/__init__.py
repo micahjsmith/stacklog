@@ -7,16 +7,20 @@ __email__ = 'micahjsmith@gmail.com'
 __version__ = '1.0.0'
 
 import time
-
 from collections import defaultdict
 from functools import wraps
 from inspect import getfullargspec
 
 from ._vendored import time_formatters
 
+__all__ = (
+    'stacklog',
+    'stacktime',
+)
 
-SUCCESS='DONE'
-FAILURE='FAILURE'
+
+SUCCESS = 'DONE'
+FAILURE = 'FAILURE'
 
 
 class stacklog:
@@ -60,9 +64,9 @@ class stacklog:
         conditions = kwargs.pop('conditions', [])  # py2 compat
         self.kwargs = kwargs
 
-        self._callbacks = defaultdict(list)
-        self._conditions = []
-        self._condition_index = None
+        self.__callbacks = defaultdict(list)
+        self.__conditions = []
+        self.__condition_index = None
 
         # default behavior
         self.on_begin(begin)
@@ -79,47 +83,47 @@ class stacklog:
         self.method(self.message + '...' + suffix, *self.args, **self.kwargs)
 
     def on_begin(self, func):
-        self._on(Event.BEGIN, func)
+        self.__on(Event.BEGIN, func)
 
     def on_success(self, func):
-        self._on(Event.SUCCESS, func)
+        self.__on(Event.SUCCESS, func)
 
     def on_failure(self, func):
-        self._on(Event.FAILURE, func)
+        self.__on(Event.FAILURE, func)
 
     def on_condition(self, match, func):
-        self._conditions.insert(0, (match, func))
+        self.__conditions.insert(0, (match, func))
 
     def on_enter(self, func):
-        self._on(Event.ENTER, func, clear=False)
+        self.__on(Event.ENTER, func, clear=False)
 
     def on_exit(self, func):
-        self._on(Event.EXIT, func, clear=False)
+        self.__on(Event.EXIT, func, clear=False)
 
-    def _on(self, event, func, clear=True):
+    def __on(self, event, func, clear=True):
         if clear:
-            self._callbacks[event].clear()
-        self._callbacks[event].append(func)
+            self.__callbacks[event].clear()
+        self.__callbacks[event].append(func)
 
-    def _signal(self, condition):
-        if condition in self._callbacks:
-            for func in self._callbacks[condition]:
+    def __signal(self, condition):
+        if condition in self.__callbacks:
+            for func in self.__callbacks[condition]:
                 func(self)
 
-    def _call_with_args(self, func, *args):
+    def __call_with_args(self, func, *args):
         nargs = len(getfullargspec(func).args)
         return func(*args[:nargs])
 
-    def _matches_exception(self, exc_type, exc_val, exc_tb):
-        for i, (match, _) in enumerate(self._conditions):
-            if self._call_with_args(match, exc_type, exc_val, exc_tb):
-                self._condition_index = i
+    def __matches_exception(self, exc_type, exc_val, exc_tb):
+        for i, (match, _) in enumerate(self.__conditions):
+            if self.__call_with_args(match, exc_type, exc_val, exc_tb):
+                self.__condition_index = i
                 return True
         return False
 
-    def _handle_exception(self, exc_type, exc_val, exc_tb):
-        func = self._conditions[self._condition_index][1]
-        self._call_with_args(func, self, exc_type, exc_val, exc_tb)
+    def __handle_exception(self, exc_type, exc_val, exc_tb):
+        func = self.__conditions[self.__condition_index][1]
+        self.__call_with_args(func, self, exc_type, exc_val, exc_tb)
 
     def __call__(self, func):
 
@@ -131,19 +135,19 @@ class stacklog:
         return wrapper
 
     def __enter__(self):
-        self._signal(Event.ENTER)
-        self._signal(Event.BEGIN)
+        self.__signal(Event.ENTER)
+        self.__signal(Event.BEGIN)
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self._signal(Event.EXIT)
+        self.__signal(Event.EXIT)
 
         if exc_type is None:
-            self._signal(Event.SUCCESS)
-        elif self._matches_exception(exc_type, exc_val, exc_tb):
-            self._handle_exception(exc_type, exc_val, exc_tb)
+            self.__signal(Event.SUCCESS)
+        elif self.__matches_exception(exc_type, exc_val, exc_tb):
+            self.__handle_exception(exc_type, exc_val, exc_tb)
         else:
-            self._signal(Event.FAILURE)
+            self.__signal(Event.FAILURE)
 
         return False
 
@@ -176,7 +180,7 @@ def log_condition(suffix):
     return lambda stacklogger: stacklogger.log(suffix=suffix)
 
 
-### custom stackloggers
+# ---- custom stackloggers ------
 
 def stacktime(*args, **kwargs):
     unit = kwargs.pop('unit', 'auto')  # py2 compat
