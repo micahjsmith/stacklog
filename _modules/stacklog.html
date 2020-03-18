@@ -203,7 +203,7 @@
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
-<span class="kn">from</span> <span class="nn">._vendored</span> <span class="kn">import</span> <span class="n">time_formatters</span>
+<span class="kn">from</span> <span class="nn">._time_formatters</span> <span class="kn">import</span> <span class="n">format_time</span>
 <span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">clearlist</span><span class="p">,</span> <span class="n">getnargs</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span>
@@ -344,7 +344,7 @@
     <span class="k">def</span> <span class="nf">__signal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">condition</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">[</span><span class="n">condition</span><span class="p">]:</span>
-                <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="n">call_with_args</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__matches_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__conditions</span><span class="p">):</span>
@@ -439,13 +439,13 @@
     <span class="n">start</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">duration</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">on_enter</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">on_enter</span><span class="p">():</span>
         <span class="k">global</span> <span class="n">start</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">on_exit</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
-        <span class="k">global</span> <span class="n">start</span><span class="p">,</span> <span class="n">duration</span>
-        <span class="n">duration</span> <span class="o">=</span> <span class="n">time_formatters</span><span class="p">[</span><span class="n">unit</span><span class="p">](</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">on_exit</span><span class="p">():</span>
+        <span class="k">global</span> <span class="n">duration</span><span class="p">,</span> <span class="n">start</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">format_time</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">on_success</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
         <span class="k">global</span> <span class="n">duration</span>
