@@ -80,24 +80,67 @@ class stacklog:
             )
 
     def log(self, suffix=''):
+        """Log a message with given suffix"""
         self.method(self.message + '...' + suffix, *self.args, **self.kwargs)
 
     def on_begin(self, func):
+        """Add callback for beginning of block
+
+        The function ``func`` takes one argument, the stacklog instance.
+        """
         self.__on(Event.BEGIN, func)
 
     def on_success(self, func):
+        """Add callback for successful execution
+
+        The function ``func`` takes one argument, the stacklog instance.
+        """
         self.__on(Event.SUCCESS, func)
 
     def on_failure(self, func):
+        """Add callback for failed execution
+
+        The function ``func`` takes one argument, the stacklog instance.
+        """
         self.__on(Event.FAILURE, func)
 
     def on_condition(self, match, func):
+        """Add callback for failed execution
+
+        The first function `match` takes up to three arguments,
+        exc_type (``type``), exc_val (``BaseException``), and exc_tb
+        (``types.TracebackType``). This is the same tuple of values as returned
+        by ``sys.exc_info()`` and allows the client to determine whether to
+        respond to this exception or not. This function should return a ``bool``
+        and have no side effects.
+
+        The second function ``func`` takes the stacklog instance as the first
+        argument and the exception info triple as the remaining arguments.
+
+        Both methods can optionally receive fewer arguments by simply
+        declaring fewer arguments in their signatures. They will be called
+        with the first arguments they declare.
+
+        See also:
+        - https://docs.python.org/3/library/sys.html#sys.exc_info
+        """
         self.__conditions.insert(0, (match, func))
 
     def on_enter(self, func):
+        """Append callback for entering block
+
+        The function ``func`` takes one argument, the stacklog instance. This
+        callback is intended for initializing resources that will be used
+        after the block has been executed.
+        """
         self.__on(Event.ENTER, func, clear=False)
 
     def on_exit(self, func):
+        """Append callback for exiting block
+
+        The function ``func`` takes one argument, the stacklog instance. This
+        callback is intended for resolving or processing resources.
+        """
         self.__on(Event.EXIT, func, clear=False)
 
     def __on(self, event, func, clear=True):
@@ -161,22 +204,27 @@ class Event:
 
 
 def begin(stacklogger):
+    """Log the default begin message"""
     return stacklogger.log()
 
 
 def succeed(stacklogger):
+    """Log the default success message"""
     return stacklogger.log(suffix=SUCCESS)
 
 
 def fail(stacklogger):
+    """Log the default failure message"""
     return stacklogger.log(suffix=FAILURE)
 
 
 def match_condition(exc_type):
+    """Return a function that matches subclasses of ``exc_type``"""
     return lambda _exc_type: issubclass(exc_type, _exc_type)
 
 
 def log_condition(suffix):
+    """Return a function that logs the given suffix."""
     return lambda stacklogger: stacklogger.log(suffix=suffix)
 
 
@@ -214,3 +262,4 @@ def stacktime(*args, **kwargs):
     stacklogger.on_success(on_success)
 
     return stacklogger
+

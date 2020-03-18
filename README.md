@@ -13,9 +13,9 @@ Stack log messages
 Stacklog is a tiny Python library to stack log messages.
 
 A stack-structured log is an approach to logging in which log messages are (conceptually)
-pushed onto a stack and emitted only when the pusher returns. Stacklog provides a single
-method, `stacklog`, which serves as either a decorator or a context manager. This is
-exceptionally useful in small projects or one-off scripts.
+pushed onto a stack and emitted only when the corresponding block returns. 
+Stacklog provides a single method, `stacklog`, which serves as either a decorator or a
+context manager. This is exceptionally useful in small projects or one-off scripts.
 
 This is illustrated best with an example:
 
@@ -35,7 +35,8 @@ Running some code...DONE
 ```
 
 When the code within a stacklog context completes, the provided message is echoed along with
-the return status, one of `DONE` or `FAILURE`. That's pretty much it.
+the return status, one of `DONE` or `FAILURE`. That's pretty much it. 
+Customization and advanced features are available through callbacks.
 
 ## Install
 
@@ -128,4 +129,48 @@ execution of the provided code, the provided status is logged instead of the def
 ...
 INFO:root:Running some code...
 INFO:root:Running some code...SKIPPED
+```
+
+### Customization with callbacks
+
+The behavior of `stacklog` is fully customizable with callbacks.
+
+The main thing that a callback will do is call the passed `stacklog` instance's 
+`log` method with some custom suffix.
+
+First, there are three callbacks to customize the behavior of logging at the 
+beginning of the block, at successful completion of the block, and at failure
+ of the block. Only one function can be registered at a time for each of 
+ these events.
+- `on_begin(func: stacklog -> None)`
+- `on_success(func: stacklog -> None)`
+- `on_failure(func: stacklog -> None)`
+
+Second, one can customize failure behavior given different possible 
+exceptions that are raised, by passing a pair of functions, the first to match 
+an exception that was raised during block execution and the second to respond
+to the exception. Many pairs of functions can be registered, but only the most 
+recent one to be registered will be executed in the case that multiple 
+functions match.
+- `on_condition(match: *exc_info -> bool, func: stacklog, *exc_info -> None)`
+
+Third, one can initialize and dispose of resources before and after the 
+block's execution. This is relevant for starting/stopping timers, etc. Many 
+functions can be registered and they will all be executed.
+- `on_enter(func: stacklog -> None)`
+- `on_exit(func: stacklog -> None)`
+
+See the implementation of `stacktime` for an example.
+
+### Adding timing information
+
+One can customize `stacklog` with callbacks to, for example, add information 
+on the duration of block execution.
+
+```pycon
+>>> with stacktime(print, 'Running some code', unit='ms'):
+...     time.sleep(1e-2)
+...
+Running some code...
+Running some code...DONE in 11.11 ms
 ```
