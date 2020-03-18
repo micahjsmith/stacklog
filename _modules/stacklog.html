@@ -204,7 +204,7 @@
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
 <span class="kn">from</span> <span class="nn">._vendored</span> <span class="kn">import</span> <span class="n">time_formatters</span>
-<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">getnargs</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">clearlist</span><span class="p">,</span> <span class="n">getnargs</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s1">&#39;stacklog&#39;</span><span class="p">,</span>
@@ -338,7 +338,7 @@
 
     <span class="k">def</span> <span class="nf">__on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">clear</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">clearlist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__signal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>

@@ -193,7 +193,10 @@
            <div itemprop="articleBody">
             
   <h1>Source code for stacklog.compat</h1><div class="highlight"><pre>
-<span></span><span class="k">try</span><span class="p">:</span>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">getfullargspec</span>
 
     <span class="k">def</span> <span class="nf">getnargs</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
@@ -203,6 +206,14 @@
 
 <div class="viewcode-block" id="getnargs"><a class="viewcode-back" href="../../api/stacklog.compat.html#stacklog.compat.getnargs">[docs]</a>    <span class="k">def</span> <span class="nf">getnargs</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">getargspec</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">.</span><span class="n">args</span><span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
+    <span class="k">def</span> <span class="nf">clearlist</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+<div class="viewcode-block" id="clearlist"><a class="viewcode-back" href="../../api/stacklog.compat.html#stacklog.compat.clearlist">[docs]</a>    <span class="k">def</span> <span class="nf">clearlist</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="k">del</span> <span class="n">l</span><span class="p">[:]</span></div>
 </pre></div>
 
            </div>
