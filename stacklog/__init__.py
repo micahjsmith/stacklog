@@ -11,7 +11,7 @@ from collections import defaultdict
 from functools import wraps
 
 from ._vendored import time_formatters
-from .compat import getnargs
+from .compat import clearlist, getnargs
 
 __all__ = (
     'stacklog',
@@ -145,7 +145,7 @@ class stacklog:
 
     def __on(self, event, func, clear=True):
         if clear:
-            self.__callbacks[event].clear()
+            clearlist(self.__callbacks[event])
         self.__callbacks[event].append(func)
 
     def __signal(self, condition):
