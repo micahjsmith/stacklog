@@ -40,7 +40,7 @@ Customization and advanced features are available through callbacks.
 
 ## Install
 
-stacklog has been developed and tested on Python 2.7 and 3.4+.
+stacklog has been developed and tested on Python 2.7 and 3.5+.
 
 ```shell
 pip install stacklog
