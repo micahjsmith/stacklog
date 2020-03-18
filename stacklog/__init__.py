@@ -9,9 +9,9 @@ __version__ = '1.0.0'
 import time
 from collections import defaultdict
 from functools import wraps
-from inspect import getfullargspec
 
 from ._vendored import time_formatters
+from .compat import getnargs
 
 __all__ = (
     'stacklog',
@@ -193,7 +193,7 @@ class stacklog:
 
 def call_with_args(func, *args):
     """Call a function with the number of args that it requires"""
-    nargs = len(getfullargspec(func).args)
+    nargs = getnargs(func)
     return func(*args[:nargs])
 
 
