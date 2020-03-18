@@ -1,0 +1,7 @@
+stacklog.compat module
+======================
+
+.. automodule:: stacklog.compat
+   :members:
+   :undoc-members:
+   :show-inheritance:

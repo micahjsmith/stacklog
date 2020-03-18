@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>stacklog &mdash; stacklog 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="stacklog" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> stacklog
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#quickstart">Quickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#usage-as-decorator">Usage as decorator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#usage-as-context-manager">Usage as context manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#providing-custom-conditions">Providing custom conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#customization-with-callbacks">Customization with callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#adding-timing-information">Adding timing information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/stacklog.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/stacklog.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/stacklog.compat.html">stacklog.compat module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/stacklog.html#module-stacklog">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#development-lead">Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id1">1.0 (2019-12-10)</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">stacklog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>stacklog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/micahjsmith/stacklog/blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <a class="reference external image-reference" href="https://pypi.python.org/pypi/stacklog"><img alt="PyPI Shield" src="https://img.shields.io/pypi/v/stacklog.svg" /></a>
+<a class="reference external image-reference" href="https://pepy.tech/project/stacklog"><img alt="Downloads" src="https://pepy.tech/badge/stacklog" /></a>
+<a class="reference external image-reference" href="https://travis-ci.org/micahjsmith/stacklog"><img alt="Travis CI Shield" src="https://travis-ci.org/micahjsmith/stacklog.svg?branch=master" /></a>
+<div class="section" id="stacklog">
+<h1>stacklog<a class="headerlink" href="#stacklog" title="Permalink to this headline">¶</a></h1>
+<p>Stack log messages</p>
+<ul class="simple">
+<li><p>Homepage: <a class="reference external" href="https://github.com/micahjsmith/stacklog">https://github.com/micahjsmith/stacklog</a></p></li>
+</ul>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Stacklog is a tiny Python library to stack log messages.</p>
+<p>A stack-structured log is an approach to logging in which log messages are (conceptually)
+pushed onto a stack and emitted only when the corresponding block returns.
+Stacklog provides a single method, <code class="docutils literal notranslate"><span class="pre">stacklog</span></code>, which serves as either a decorator or a
+context manager. This is exceptionally useful in small projects or one-off scripts.</p>
+<p>This is illustrated best with an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">stacklog</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="s1">&#39;Running some code&#39;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">stacklog</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="s1">&#39;Running some other code&#39;</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>This produces the following logging output:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Running some code...
+Running some other code...
+Running some other code...DONE
+Running some code...DONE
+</pre></div>
+</div>
+<p>When the code within a stacklog context completes, the provided message is echoed along with
+the return status, one of <code class="docutils literal notranslate"><span class="pre">DONE</span></code> or <code class="docutils literal notranslate"><span class="pre">FAILURE</span></code>. That’s pretty much it.
+Customization and advanced features are available through callbacks.</p>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p>stacklog has been developed and tested on Python 2.7 and 3.5+.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install stacklog
+</pre></div>
+</div>
+</div>
+<div class="section" id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<p>How often do you find yourself using the following logging anti-pattern in Python?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Running a&#39;</span><span class="p">)</span>
+    <span class="n">do_something</span><span class="p">()</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Done with a&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">b</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Running b&#39;</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">()</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Done with b&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">b</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;There was an error running b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The intention here is to log the beginning and end of procedure calls for use in debugging
+or user monitoring. I call this an anti-pattern because:</p>
+<ul class="simple">
+<li><p>it requires excessive manual attention to writing/updating logging calls at entry/exit sites</p></li>
+<li><p>it results in redundant exception handling logic</p></li>
+<li><p>the resulting log messages can be misleading if errors occur</p></li>
+</ul>
+<p>Instead, the approach taken by stacklog is to accomplish this using only decorators and
+context managers.</p>
+<div class="section" id="usage-as-decorator">
+<h3>Usage as decorator<a class="headerlink" href="#usage-as-decorator" title="Permalink to this headline">¶</a></h3>
+<p>Here is the above example using the stacklog as a decorator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@stacklog</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;Running a&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
+    <span class="k">raise</span> <span class="ne">Exception</span>
+
+<span class="nd">@stacklog</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;Running b&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">b</span><span class="p">():</span>
+    <span class="n">a</span><span class="p">()</span>
+
+<span class="n">b</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This produces logging output:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>INFO:root:Running b...
+INFO:root:Running a...
+INFO:root:Running a...FAILURE
+INFO:root:Running b...FAILURE
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-as-context-manager">
+<h3>Usage as context manager<a class="headerlink" href="#usage-as-context-manager" title="Permalink to this headline">¶</a></h3>
+<p>Here is another example using stacklog as a context manager:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">stacklog</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;Running some code&#39;</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">do_something</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">INFO:root:Running some code...</span>
+<span class="go">INFO:root:Running some code...DONE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="providing-custom-conditions">
+<h3>Providing custom conditions<a class="headerlink" href="#providing-custom-conditions" title="Permalink to this headline">¶</a></h3>
+<p>A <em>condition</em> is a tuple <code class="docutils literal notranslate"><span class="pre">exception,</span> <span class="pre">status</span></code>. If the provided exception is raised during the
+execution of the provided code, the provided status is logged instead of the default
+<code class="docutils literal notranslate"><span class="pre">FAILURE</span></code>.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">stacklog</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;Running some code&#39;</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="p">[(</span><span class="ne">NotImplementedError</span><span class="p">,</span>
+<span class="go">&#39;SKIPPED&#39;)]):</span>
+<span class="gp">... </span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+<span class="gp">...</span>
+<span class="go">INFO:root:Running some code...</span>
+<span class="go">INFO:root:Running some code...SKIPPED</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="customization-with-callbacks">
+<h3>Customization with callbacks<a class="headerlink" href="#customization-with-callbacks" title="Permalink to this headline">¶</a></h3>
+<p>The behavior of <code class="docutils literal notranslate"><span class="pre">stacklog</span></code> is fully customizable with callbacks.</p>
+<p>The main thing that a callback will do is call the passed <code class="docutils literal notranslate"><span class="pre">stacklog</span></code> instance’s
+<code class="docutils literal notranslate"><span class="pre">log</span></code> method with some custom suffix.</p>
+<p>First, there are three callbacks to customize the behavior of logging at the
+beginning of the block, at successful completion of the block, and at failure</p>
+<blockquote>
+<div><p>of the block. Only one function can be registered at a time for each of
+these events.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">on_begin(func:</span> <span class="pre">stacklog</span> <span class="pre">-&gt;</span> <span class="pre">None)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_success(func:</span> <span class="pre">stacklog</span> <span class="pre">-&gt;</span> <span class="pre">None)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_failure(func:</span> <span class="pre">stacklog</span> <span class="pre">-&gt;</span> <span class="pre">None)</span></code></p></li>
+</ul>
+<p>Second, one can customize failure behavior given different possible
+exceptions that are raised, by passing a pair of functions, the first to match
+an exception that was raised during block execution and the second to respond
+to the exception. Many pairs of functions can be registered, but only the most
+recent one to be registered will be executed in the case that multiple
+functions match.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">on_condition(match:</span> <span class="pre">*exc_info</span> <span class="pre">-&gt;</span> <span class="pre">bool,</span> <span class="pre">func:</span> <span class="pre">stacklog,</span> <span class="pre">*exc_info</span> <span class="pre">-&gt;</span> <span class="pre">None)</span></code></p></li>
+</ul>
+<p>Third, one can initialize and dispose of resources before and after the
+block’s execution. This is relevant for starting/stopping timers, etc. Many
+functions can be registered and they will all be executed.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">on_enter(func:</span> <span class="pre">stacklog</span> <span class="pre">-&gt;</span> <span class="pre">None)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_exit(func:</span> <span class="pre">stacklog</span> <span class="pre">-&gt;</span> <span class="pre">None)</span></code></p></li>
+</ul>
+<p>See the implementation of <code class="docutils literal notranslate"><span class="pre">stacktime</span></code> for an example.</p>
+</div>
+<div class="section" id="adding-timing-information">
+<h3>Adding timing information<a class="headerlink" href="#adding-timing-information" title="Permalink to this headline">¶</a></h3>
+<p>One can customize <code class="docutils literal notranslate"><span class="pre">stacklog</span></code> with callbacks to, for example, add information
+on the duration of block execution.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">stacktime</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="s1">&#39;Running some code&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">Running some code...</span>
+<span class="go">Running some code...DONE in 11.11 ms</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="readme.html" class="btn btn-neutral float-right" title="stacklog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Micah Smith
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

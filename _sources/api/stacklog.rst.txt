@@ -1,0 +1,17 @@
+stacklog package
+================
+
+Submodules
+----------
+
+.. toctree::
+
+   stacklog.compat
+
+Module contents
+---------------
+
+.. automodule:: stacklog
+   :members:
+   :undoc-members:
+   :show-inheritance:
