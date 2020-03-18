@@ -153,20 +153,16 @@ class stacklog:
             for func in self.__callbacks[condition]:
                 func(self)
 
-    def __call_with_args(self, func, *args):
-        nargs = len(getfullargspec(func).args)
-        return func(*args[:nargs])
-
     def __matches_exception(self, exc_type, exc_val, exc_tb):
         for i, (match, _) in enumerate(self.__conditions):
-            if self.__call_with_args(match, exc_type, exc_val, exc_tb):
+            if call_with_args(match, exc_type, exc_val, exc_tb):
                 self.__condition_index = i
                 return True
         return False
 
     def __handle_exception(self, exc_type, exc_val, exc_tb):
         func = self.__conditions[self.__condition_index][1]
-        self.__call_with_args(func, self, exc_type, exc_val, exc_tb)
+        call_with_args(func, self, exc_type, exc_val, exc_tb)
 
     def __call__(self, func):
 
@@ -193,6 +189,12 @@ class stacklog:
             self.__signal(Event.FAILURE)
 
         return False
+
+
+def call_with_args(func, *args):
+    """Call a function with the number of args that it requires"""
+    nargs = len(getfullargspec(func).args)
+    return func(*args[:nargs])
 
 
 class Event:
@@ -262,4 +264,3 @@ def stacktime(*args, **kwargs):
     stacklogger.on_success(on_success)
 
     return stacklogger
-
