@@ -10,7 +10,7 @@ import time
 from collections import defaultdict
 from functools import wraps
 
-from ._vendored import time_formatters
+from ._time_formatters import format_time
 from .compat import clearlist, getnargs
 
 __all__ = (
@@ -151,7 +151,7 @@ class stacklog:
     def __signal(self, condition):
         if condition in self.__callbacks:
             for func in self.__callbacks[condition]:
-                func(self)
+                call_with_args(func, self)
 
     def __matches_exception(self, exc_type, exc_val, exc_tb):
         for i, (match, _) in enumerate(self.__conditions):
@@ -246,13 +246,13 @@ def stacktime(*args, **kwargs):
     start = None
     duration = None
 
-    def on_enter(_):
+    def on_enter():
         global start
         start = time.time()
 
-    def on_exit(_):
-        global start, duration
-        duration = time_formatters[unit](time.time() - start).lstrip()
+    def on_exit():
+        global duration, start
+        duration = format_time(unit, (time.time() - start))
 
     def on_success(s):
         global duration
