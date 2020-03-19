@@ -4,7 +4,7 @@
 
 __author__ = 'Micah Smith'
 __email__ = 'micahjsmith@gmail.com'
-__version__ = '1.0.0'
+__version__ = '1.1.0'
 
 import time
 from collections import defaultdict
