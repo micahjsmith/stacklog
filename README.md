@@ -1,11 +1,12 @@
 [![PyPI Shield](https://img.shields.io/pypi/v/stacklog.svg)](https://pypi.python.org/pypi/stacklog)
 [![Downloads](https://pepy.tech/badge/stacklog)](https://pepy.tech/project/stacklog)
-[![Travis CI Shield](https://travis-ci.org/micahjsmith/stacklog.svg?branch=master)](https://travis-ci.org/micahjsmith/stacklog)
+[![Travis CI Shield](https://travis-ci.com/micahjsmith/stacklog.svg?branch=master)](https://travis-ci.com/micahjsmith/stacklog)
 
 # stacklog
 
 Stack log messages
 
+- Documentation: https://micahjsmith.github.io/stacklog
 - Homepage: https://github.com/micahjsmith/stacklog
 
 ## Overview
