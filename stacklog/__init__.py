@@ -238,7 +238,17 @@ def stacktime(*args, **kwargs):
     The same arguments apply as to stacklog, with one additional kwarg.
 
     Args:
-        unit (str): one of 'auto', 'ns', 'mks', 'ms', 's'.
+        unit (str):
+            one of 'auto', 'ns', 'mks', 'ms', 's', 'min'. Defaults to 'auto'.
+
+    Example usage::
+
+       >>> with stacktime(print, 'Running some code', unit='ms'):
+       ...     time.sleep(1e-2)
+       ...
+       Running some code...
+       Running some code...DONE in 11.11 ms
+
     """
     unit = kwargs.pop('unit', 'auto')  # py2 compat
     stacklogger = stacklog(*args, **kwargs)

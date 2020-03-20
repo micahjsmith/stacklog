@@ -117,6 +117,8 @@ INFO:root:Running some code...
 INFO:root:Running some code...DONE
 ```
 
+## Advanced usage
+
 ### Providing custom conditions
 
 A *condition* is a tuple `exception, status`. If the provided exception is raised during the
@@ -141,8 +143,8 @@ The main thing that a callback will do is call the passed `stacklog` instance's
 
 First, there are three callbacks to customize the behavior of logging at the 
 beginning of the block, at successful completion of the block, and at failure
- of the block. Only one function can be registered at a time for each of 
- these events.
+of the block. Only one function can be registered at a time for each of 
+these events.
 - `on_begin(func: stacklog -> None)`
 - `on_success(func: stacklog -> None)`
 - `on_failure(func: stacklog -> None)`
@@ -166,7 +168,10 @@ See the implementation of `stacktime` for an example.
 ### Adding timing information
 
 One can customize `stacklog` with callbacks to, for example, add information 
-on the duration of block execution.
+on the duration of block execution. This is packaged with the library itself 
+as the `stacktime` decorator/context manager. It's usage is the same as 
+`stacklog` except that it also logs timing information at the successful 
+completion of block.
 
 ```pycon
 >>> with stacktime(print, 'Running some code', unit='ms'):
