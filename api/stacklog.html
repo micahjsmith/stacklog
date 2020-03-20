@@ -84,6 +84,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#quickstart">Quickstart</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#usage-as-decorator">Usage as decorator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#usage-as-context-manager">Usage as context manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#advanced-usage">Advanced usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#providing-custom-conditions">Providing custom conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#customization-with-callbacks">Customization with callbacks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#adding-timing-information">Adding timing information</a></li>
@@ -115,10 +118,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../contributing.html#release-candidates">Release Candidates</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
@@ -375,9 +375,17 @@ callback is intended for resolving or processing resources.</p>
 <p>The same arguments apply as to stacklog, with one additional kwarg.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>unit</strong> (<em>str</em>) – one of ‘auto’, ‘ns’, ‘mks’, ‘ms’, ‘s’.</p>
+<dd class="field-odd"><p><strong>unit</strong> (<em>str</em>) – one of ‘auto’, ‘ns’, ‘mks’, ‘ms’, ‘s’, ‘min’. Defaults to ‘auto’.</p>
 </dd>
 </dl>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">stacktime</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="s1">&#39;Running some code&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">Running some code...</span>
+<span class="go">Running some code...DONE in 11.11 ms</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>

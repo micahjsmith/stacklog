@@ -83,6 +83,9 @@
 <li class="toctree-l2"><a class="reference internal" href="readme.html#quickstart">Quickstart</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#usage-as-decorator">Usage as decorator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#usage-as-context-manager">Usage as context manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#advanced-usage">Advanced usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#providing-custom-conditions">Providing custom conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#customization-with-callbacks">Customization with callbacks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#adding-timing-information">Adding timing information</a></li>
@@ -114,10 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contributing.html#release-candidates">Release Candidates</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
@@ -300,6 +300,9 @@ INFO:root:Running b...FAILURE
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="advanced-usage">
+<h2>Advanced usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="providing-custom-conditions">
 <h3>Providing custom conditions<a class="headerlink" href="#providing-custom-conditions" title="Permalink to this headline">¶</a></h3>
 <p>A <em>condition</em> is a tuple <code class="docutils literal notranslate"><span class="pre">exception,</span> <span class="pre">status</span></code>. If the provided exception is raised during the
@@ -320,11 +323,9 @@ execution of the provided code, the provided status is logged instead of the def
 <p>The main thing that a callback will do is call the passed <code class="docutils literal notranslate"><span class="pre">stacklog</span></code> instance’s
 <code class="docutils literal notranslate"><span class="pre">log</span></code> method with some custom suffix.</p>
 <p>First, there are three callbacks to customize the behavior of logging at the
-beginning of the block, at successful completion of the block, and at failure</p>
-<blockquote>
-<div><p>of the block. Only one function can be registered at a time for each of
+beginning of the block, at successful completion of the block, and at failure
+of the block. Only one function can be registered at a time for each of
 these events.</p>
-</div></blockquote>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">on_begin(func:</span> <span class="pre">stacklog</span> <span class="pre">-&gt;</span> <span class="pre">None)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">on_success(func:</span> <span class="pre">stacklog</span> <span class="pre">-&gt;</span> <span class="pre">None)</span></code></p></li>
@@ -351,7 +352,10 @@ functions can be registered and they will all be executed.</p>
 <div class="section" id="adding-timing-information">
 <h3>Adding timing information<a class="headerlink" href="#adding-timing-information" title="Permalink to this headline">¶</a></h3>
 <p>One can customize <code class="docutils literal notranslate"><span class="pre">stacklog</span></code> with callbacks to, for example, add information
-on the duration of block execution.</p>
+on the duration of block execution. This is packaged with the library itself
+as the <code class="docutils literal notranslate"><span class="pre">stacktime</span></code> decorator/context manager. It’s usage is the same as
+<code class="docutils literal notranslate"><span class="pre">stacklog</span></code> except that it also logs timing information at the successful
+completion of block.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">stacktime</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="s1">&#39;Running some code&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">)</span>
 <span class="gp">...</span>

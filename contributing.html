@@ -84,6 +84,9 @@
 <li class="toctree-l2"><a class="reference internal" href="readme.html#quickstart">Quickstart</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#usage-as-decorator">Usage as decorator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#usage-as-context-manager">Usage as context manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#advanced-usage">Advanced usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#providing-custom-conditions">Providing custom conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#customization-with-callbacks">Customization with callbacks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#adding-timing-information">Adding timing information</a></li>
@@ -115,10 +118,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#pull-request-guidelines">Pull Request Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#unit-testing-guidelines">Unit Testing Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#release-workflow">Release Workflow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#release-candidates">Release Candidates</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-workflow">Release Workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
@@ -244,16 +244,17 @@ are welcome :)</p></li>
 </div>
 <div class="section" id="get-started">
 <h2>Get Started!<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h2>
-<p>Ready to contribute? Here’s how to set up <cite>stacklog</cite> for local development.</p>
+<p>Ready to contribute? Here’s how to set up stacklog for local development.</p>
 <ol class="arabic">
-<li><p>Fork the <cite>stacklog</cite> repo on GitHub.</p></li>
+<li><p>Fork the stacklog repo on GitHub.</p></li>
 <li><p>Clone your fork locally:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:your_name_here/stacklog.git
 </pre></div>
 </div>
 </li>
-<li><p>Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed,
-this is how you set up your fork for local development:</p>
+<li><p>Install your local copy into a virtualenv of choice. Assuming you have
+virtualenvwrapper installed, this is how you set up your fork for local
+development:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkvirtualenv stacklog
 $ <span class="nb">cd</span> stacklog/
 $ make install-develop
@@ -340,8 +341,9 @@ Names such as <code class="docutils literal notranslate"><span class="pre">test_
 cover the behavior of any third party package or tool being used, which is assumed to
 work properly as far as it is being passed the right values.</p></li>
 <li><p>Any third party tool that may have any kind of random behavior, such as some Machine
-Learning models, databases or Web APIs, will be mocked using the <code class="docutils literal notranslate"><span class="pre">mock</span></code> library, and
-the only thing that will be tested is that our code passes the right values to them.</p></li>
+Learning models, databases or Web APIs, will be mocked using the <code class="docutils literal notranslate"><span class="pre">mock</span></code> library
+or pytest <code class="docutils literal notranslate"><span class="pre">monkeypatch</span></code> fixture, and the only thing that will be tested is
+that our code passes the right values to them.</p></li>
 <li><p>Unit tests should not use anything from outside the test and the code being tested. This
 includes not reading or writing to any file system or database, which will be properly
 mocked.</p></li>
@@ -357,70 +359,26 @@ $ python -m pytest -k <span class="s1">&#39;foo&#39;</span>
 </div>
 <div class="section" id="release-workflow">
 <h2>Release Workflow<a class="headerlink" href="#release-workflow" title="Permalink to this headline">¶</a></h2>
-<p>The process of releasing a new version involves several steps combining both <code class="docutils literal notranslate"><span class="pre">git</span></code> and
-<code class="docutils literal notranslate"><span class="pre">bumpversion</span></code> which, briefly:</p>
-<ol class="arabic simple">
-<li><p>Merge what is in <code class="docutils literal notranslate"><span class="pre">master</span></code> branch into <code class="docutils literal notranslate"><span class="pre">stable</span></code> branch.</p></li>
-<li><p>Update the version in <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>, <code class="docutils literal notranslate"><span class="pre">stacklog/__init__.py</span></code> and
-<code class="docutils literal notranslate"><span class="pre">HISTORY.md</span></code> files.</p></li>
-<li><p>Create a new git tag pointing at the corresponding commit in <code class="docutils literal notranslate"><span class="pre">stable</span></code> branch.</p></li>
-<li><p>Merge the new commit from <code class="docutils literal notranslate"><span class="pre">stable</span></code> into <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p></li>
-<li><p>Update the version in <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> and <code class="docutils literal notranslate"><span class="pre">stacklog/__init__.py</span></code>
-to open the next development iteration.</p></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Before starting the process, make sure that <code class="docutils literal notranslate"><span class="pre">HISTORY.md</span></code> has been updated with a new
-entry that explains the changes that will be included in the new version.
-Normally this is just a list of the Pull Requests that have been merged to master
-since the last release.</p>
-</div>
-<p>Once this is done, run of the following commands:</p>
 <ol class="arabic">
-<li><p>If you are releasing a patch version:</p>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">HISTORY.md</span></code> file describing the new release.</p></li>
+<li><p>Update the version in <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>, <code class="docutils literal notranslate"><span class="pre">stacklog/__init__.py</span></code> and
+elsewhere, and create a new git tag pointing at the corresponding commit in
+<code class="docutils literal notranslate"><span class="pre">master</span></code> branch:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bumpversion &lt;type&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Push to GitHub and ensure that tests pass:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git push --tags origin master
+</pre></div>
+</div>
+</li>
+<li><p>Create a new release on PyPI:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make release
 </pre></div>
 </div>
 </li>
-<li><p>If you are releasing a minor version:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make release-minor
-</pre></div>
-</div>
-</li>
-<li><p>If you are releasing a major version:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make release-major
-</pre></div>
-</div>
-</li>
 </ol>
-<div class="section" id="release-candidates">
-<h3>Release Candidates<a class="headerlink" href="#release-candidates" title="Permalink to this headline">¶</a></h3>
-<p>Sometimes it is necessary or convenient to upload a release candidate to PyPi as a pre-release,
-in order to make some of the new features available for testing on other projects before they
-are included in an actual full-blown release.</p>
-<p>In order to perform such an action, you can execute:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make release-candidate
-</pre></div>
-</div>
-<p>This will perform the following actions:</p>
-<ol class="arabic simple">
-<li><p>Build and upload the current version to PyPi as a pre-release, with the format <code class="docutils literal notranslate"><span class="pre">X.Y.Z.devN</span></code></p></li>
-<li><p>Bump the current version to the next release candidate, <code class="docutils literal notranslate"><span class="pre">X.Y.Z.dev(N+1)</span></code></p></li>
-</ol>
-<p>After this is done, the new pre-release can be installed by including the <code class="docutils literal notranslate"><span class="pre">dev</span></code> section in the
-dependency specification, either in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">install_requires</span> <span class="o">=</span> <span class="o">[</span>
-    ...
-    <span class="s1">&#39;stacklog&gt;=X.Y.Z.dev&#39;</span>,
-    ...
-<span class="o">]</span>
-</pre></div>
-</div>
-<p>or in command line:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;stacklog&gt;=X.Y.Z.dev&#39;</span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 

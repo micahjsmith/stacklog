@@ -82,6 +82,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#quickstart">Quickstart</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#usage-as-decorator">Usage as decorator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#usage-as-context-manager">Usage as context manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#advanced-usage">Advanced usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#providing-custom-conditions">Providing custom conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#customization-with-callbacks">Customization with callbacks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#adding-timing-information">Adding timing information</a></li>
@@ -113,10 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../contributing.html#release-candidates">Release Candidates</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
@@ -432,7 +432,17 @@
 <span class="sd">    The same arguments apply as to stacklog, with one additional kwarg.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        unit (str): one of &#39;auto&#39;, &#39;ns&#39;, &#39;mks&#39;, &#39;ms&#39;, &#39;s&#39;.</span>
+<span class="sd">        unit (str):</span>
+<span class="sd">            one of &#39;auto&#39;, &#39;ns&#39;, &#39;mks&#39;, &#39;ms&#39;, &#39;s&#39;, &#39;min&#39;. Defaults to &#39;auto&#39;.</span>
+
+<span class="sd">    Example usage::</span>
+
+<span class="sd">       &gt;&gt;&gt; with stacktime(print, &#39;Running some code&#39;, unit=&#39;ms&#39;):</span>
+<span class="sd">       ...     time.sleep(1e-2)</span>
+<span class="sd">       ...</span>
+<span class="sd">       Running some code...</span>
+<span class="sd">       Running some code...DONE in 11.11 ms</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">unit</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;unit&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span>  <span class="c1"># py2 compat</span>
     <span class="n">stacklogger</span> <span class="o">=</span> <span class="n">stacklog</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
