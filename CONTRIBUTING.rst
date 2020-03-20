@@ -57,15 +57,16 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `stacklog` for local development.
+Ready to contribute? Here's how to set up stacklog for local development.
 
-1. Fork the `stacklog` repo on GitHub.
+1. Fork the stacklog repo on GitHub.
 2. Clone your fork locally::
 
     $ git clone git@github.com:your_name_here/stacklog.git
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed,
-   this is how you set up your fork for local development::
+3. Install your local copy into a virtualenv of choice. Assuming you have
+   virtualenvwrapper installed, this is how you set up your fork for local
+   development::
 
     $ mkvirtualenv stacklog
     $ cd stacklog/
@@ -153,8 +154,9 @@ All the Unit Tests should comply with the following requirements:
    work properly as far as it is being passed the right values.
 
 6. Any third party tool that may have any kind of random behavior, such as some Machine
-   Learning models, databases or Web APIs, will be mocked using the ``mock`` library, and
-   the only thing that will be tested is that our code passes the right values to them.
+   Learning models, databases or Web APIs, will be mocked using the ``mock`` library
+   or pytest ``monkeypatch`` fixture, and the only thing that will be tested is
+   that our code passes the right values to them.
 
 7. Unit tests should not use anything from outside the test and the code being tested. This
    includes not reading or writing to any file system or database, which will be properly
@@ -171,66 +173,21 @@ To run a subset of tests::
 Release Workflow
 ----------------
 
-The process of releasing a new version involves several steps combining both ``git`` and
-``bumpversion`` which, briefly:
+#. Update the ``HISTORY.md`` file describing the new release.
 
-1. Merge what is in ``master`` branch into ``stable`` branch.
-2. Update the version in ``setup.cfg``, ``stacklog/__init__.py`` and
-   ``HISTORY.md`` files.
-3. Create a new git tag pointing at the corresponding commit in ``stable`` branch.
-4. Merge the new commit from ``stable`` into ``master``.
-5. Update the version in ``setup.cfg`` and ``stacklog/__init__.py``
-   to open the next development iteration.
+#. Update the version in ``setup.cfg``, ``stacklog/__init__.py`` and
+   elsewhere, and create a new git tag pointing at the corresponding commit in
+   ``master`` branch::
 
-.. note:: Before starting the process, make sure that ``HISTORY.md`` has been updated with a new
-          entry that explains the changes that will be included in the new version.
-          Normally this is just a list of the Pull Requests that have been merged to master
-          since the last release.
+    bumpversion <type>
 
-Once this is done, run of the following commands:
+#. Push to GitHub and ensure that tests pass::
 
-1. If you are releasing a patch version::
+    git push --tags origin master
+
+#. Create a new release on PyPI::
 
     make release
-
-2. If you are releasing a minor version::
-
-    make release-minor
-
-3. If you are releasing a major version::
-
-    make release-major
-
-Release Candidates
-~~~~~~~~~~~~~~~~~~
-
-Sometimes it is necessary or convenient to upload a release candidate to PyPi as a pre-release,
-in order to make some of the new features available for testing on other projects before they
-are included in an actual full-blown release.
-
-In order to perform such an action, you can execute::
-
-    make release-candidate
-
-This will perform the following actions:
-
-1. Build and upload the current version to PyPi as a pre-release, with the format ``X.Y.Z.devN``
-
-2. Bump the current version to the next release candidate, ``X.Y.Z.dev(N+1)``
-
-After this is done, the new pre-release can be installed by including the ``dev`` section in the
-dependency specification, either in ``setup.py``::
-
-    install_requires = [
-        ...
-        'stacklog>=X.Y.Z.dev',
-        ...
-    ]
-
-or in command line::
-
-    pip install 'stacklog>=X.Y.Z.dev'
-
 
 .. _GitHub issues page: https://github.com/micahjsmith/stacklog/issues
 .. _Travis Build Status page: https://travis-ci.org/micahjsmith/stacklog/pull_requests
