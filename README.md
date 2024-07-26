@@ -6,15 +6,15 @@
 
 Stack log messages
 
-- Documentation: https://micahjsmith.github.io/stacklog
-- Homepage: https://github.com/micahjsmith/stacklog
+- Documentation: <https://micahjsmith.github.io/stacklog>
+- Homepage: <https://github.com/micahjsmith/stacklog>
 
 ## Overview
 
 Stacklog is a tiny Python library to stack log messages.
 
 A stack-structured log is an approach to logging in which log messages are (conceptually)
-pushed onto a stack and emitted only when the corresponding block returns. 
+pushed onto a stack and emitted only when the corresponding block returns.
 Stacklog provides a single method, `stacklog`, which serves as either a decorator or a
 context manager. This is exceptionally useful in small projects or one-off scripts.
 
@@ -36,7 +36,7 @@ Running some code...DONE
 ```
 
 When the code within a stacklog context completes, the provided message is echoed along with
-the return status, one of `DONE` or `FAILURE`. That's pretty much it. 
+the return status, one of `DONE` or `FAILURE`. That's pretty much it.
 Customization and advanced features are available through callbacks.
 
 ## Install
@@ -138,28 +138,31 @@ INFO:root:Running some code...SKIPPED
 
 The behavior of `stacklog` is fully customizable with callbacks.
 
-The main thing that a callback will do is call the passed `stacklog` instance's 
+The main thing that a callback will do is call the passed `stacklog` instance's
 `log` method with some custom suffix.
 
-First, there are three callbacks to customize the behavior of logging at the 
+First, there are three callbacks to customize the behavior of logging at the
 beginning of the block, at successful completion of the block, and at failure
-of the block. Only one function can be registered at a time for each of 
+of the block. Only one function can be registered at a time for each of
 these events.
+
 - `on_begin(func: stacklog -> None)`
 - `on_success(func: stacklog -> None)`
 - `on_failure(func: stacklog -> None)`
 
-Second, one can customize failure behavior given different possible 
-exceptions that are raised, by passing a pair of functions, the first to match 
+Second, one can customize failure behavior given different possible
+exceptions that are raised, by passing a pair of functions, the first to match
 an exception that was raised during block execution and the second to respond
-to the exception. Many pairs of functions can be registered, but only the most 
-recent one to be registered will be executed in the case that multiple 
+to the exception. Many pairs of functions can be registered, but only the most
+recent one to be registered will be executed in the case that multiple
 functions match.
+
 - `on_condition(match: *exc_info -> bool, func: stacklog, *exc_info -> None)`
 
-Third, one can initialize and dispose of resources before and after the 
-block's execution. This is relevant for starting/stopping timers, etc. Many 
+Third, one can initialize and dispose of resources before and after the
+block's execution. This is relevant for starting/stopping timers, etc. Many
 functions can be registered and they will all be executed.
+
 - `on_enter(func: stacklog -> None)`
 - `on_exit(func: stacklog -> None)`
 
@@ -167,10 +170,10 @@ See the implementation of `stacktime` for an example.
 
 ### Adding timing information
 
-One can customize `stacklog` with callbacks to, for example, add information 
-on the duration of block execution. This is packaged with the library itself 
-as the `stacktime` decorator/context manager. It's usage is the same as 
-`stacklog` except that it also logs timing information at the successful 
+One can customize `stacklog` with callbacks to, for example, add information
+on the duration of block execution. This is packaged with the library itself
+as the `stacktime` decorator/context manager. It's usage is the same as
+`stacklog` except that it also logs timing information at the successful
 completion of block.
 
 ```pycon

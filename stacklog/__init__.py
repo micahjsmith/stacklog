@@ -1,26 +1,57 @@
 # -*- coding: utf-8 -*-
-
 """Top-level package for stacklog."""
 
-__author__ = 'Micah Smith'
-__email__ = 'micahjsmith@gmail.com'
-__version__ = '1.1.0'
+__author__ = "Micah Smith"
+__email__ = "micahjsmith@gmail.com"
+__version__ = "1.1.0"
 
+from enum import StrEnum
+from inspect import getfullargspec
+from typing import Callable, TypeVar, ParamSpec
+import types
 import time
 from collections import defaultdict
 from functools import wraps
+from typing import Any, Callable
 
 from ._time_formatters import format_time
-from .compat import clearlist, getnargs
+from .compat import getnargs
 
 __all__ = (
-    'stacklog',
-    'stacktime',
+    "stacklog",
+    "stacktime",
 )
 
 
-SUCCESS = 'DONE'
-FAILURE = 'FAILURE'
+SUCCESS = "DONE"
+FAILURE = "FAILURE"
+
+
+SysExcInfoCurrentExc = tuple[type, BaseException, types.TracebackType]
+SysExcInfoNoCurrentExc = tuple[None, None, None]
+SysExcInfo = SysExcInfoCurrentExc | SysExcInfoNoCurrentExc
+StacklogConditionMatchFn = (
+    Callable[[type | None], bool]
+    | Callable[[type | None, BaseException | None], bool]
+    | Callable[[type | None, BaseException | None, types.TracebackType | None], bool]
+)
+StacklogMethodFn = Callable[[str], Any]
+StacklogCallbackFn = Callable[["stacklog"], None]
+
+P_CALL = ParamSpec("P_CALL")
+T_CALL = TypeVar("T_CALL")
+
+
+def getnargs(func: object) -> int:
+    return len(getfullargspec(func).args)
+
+
+class Event(StrEnum):
+    ENTER = "enter"
+    BEGIN = "begin"
+    EXIT = "exit"
+    SUCCESS = "success"
+    FAILURE = "failure"
 
 
 class stacklog:
@@ -57,12 +88,24 @@ class stacklog:
         **kwargs: kwargs to log method
     """
 
-    def __init__(self, method, message, *args, **kwargs):
+    __callbacks: dict[Event, list[StacklogCallbackFn]]
+    __conditions: list[tuple[StacklogConditionMatchFn, StacklogCallbackFn]]
+    __condition_index: int | None
+
+    def __init__(
+        self,
+        method: StacklogMethodFn,
+        message: str,
+        *args,  # type: ignore
+        conditions: list[tuple[type, str]] | None = None,
+        **kwargs  # type: ignore
+    ):
+        if conditions is None:
+            conditions = []
         self.method = method
         self.message = str(message)
-        self.args = args
-        conditions = kwargs.pop('conditions', [])  # py2 compat
-        self.kwargs = kwargs
+        self.args = args  # type: ignore
+        self.kwargs = kwargs  # type: ignore
 
         self.__callbacks = defaultdict(list)
         self.__conditions = []
@@ -74,37 +117,34 @@ class stacklog:
         self.on_failure(fail)
 
         for exc_type, suffix in conditions:
-            self.on_condition(
-                match_condition(exc_type),
-                log_condition(suffix)
-            )
+            self.on_condition(match_condition(exc_type), log_condition(suffix))
 
-    def log(self, suffix=''):
+    def log(self, suffix: str = "") -> None:
         """Log a message with given suffix"""
-        self.method(self.message + '...' + suffix, *self.args, **self.kwargs)
+        self.method(self.message + "..." + suffix, *self.args, **self.kwargs)  # type: ignore
 
-    def on_begin(self, func):
+    def on_begin(self, func: StacklogCallbackFn) -> None:
         """Add callback for beginning of block
 
         The function ``func`` takes one argument, the stacklog instance.
         """
         self.__on(Event.BEGIN, func)
 
-    def on_success(self, func):
+    def on_success(self, func: StacklogCallbackFn) -> None:
         """Add callback for successful execution
 
         The function ``func`` takes one argument, the stacklog instance.
         """
         self.__on(Event.SUCCESS, func)
 
-    def on_failure(self, func):
+    def on_failure(self, func: StacklogCallbackFn):
         """Add callback for failed execution
 
         The function ``func`` takes one argument, the stacklog instance.
         """
         self.__on(Event.FAILURE, func)
 
-    def on_condition(self, match, func):
+    def on_condition(self, match: StacklogConditionMatchFn, func: StacklogCallbackFn):
         """Add callback for failed execution
 
         The first function `match` takes up to three arguments,
@@ -126,7 +166,7 @@ class stacklog:
         """
         self.__conditions.insert(0, (match, func))
 
-    def on_enter(self, func):
+    def on_enter(self, func: StacklogCallbackFn):
         """Append callback for entering block
 
         The function ``func`` takes one argument, the stacklog instance. This
@@ -135,7 +175,7 @@ class stacklog:
         """
         self.__on(Event.ENTER, func, clear=False)
 
-    def on_exit(self, func):
+    def on_exit(self, func: StacklogCallbackFn):
         """Append callback for exiting block
 
         The function ``func`` takes one argument, the stacklog instance. This
@@ -143,31 +183,33 @@ class stacklog:
         """
         self.__on(Event.EXIT, func, clear=False)
 
-    def __on(self, event, func, clear=True):
+    def __on(self, event: Event, func: StacklogCallbackFn, clear: bool = True):
         if clear:
-            clearlist(self.__callbacks[event])
+            self.__callbacks[event].clear()
         self.__callbacks[event].append(func)
 
-    def __signal(self, condition):
-        if condition in self.__callbacks:
-            for func in self.__callbacks[condition]:
+    def __signal(self, event: Event):
+        if event in self.__callbacks:
+            for func in self.__callbacks[event]:
                 call_with_args(func, self)
 
-    def __matches_exception(self, exc_type, exc_val, exc_tb):
+    def __matches_exception(self, *sys_exc_info: SysExcInfo):
+        exc_type, exc_val, exc_tb = sys_exc_info
         for i, (match, _) in enumerate(self.__conditions):
-            if call_with_args(match, exc_type, exc_val, exc_tb):
+            if call_with_args(match, exc_type, exc_val, exc_tb):  # type: ignore
                 self.__condition_index = i
                 return True
         return False
 
-    def __handle_exception(self, exc_type, exc_val, exc_tb):
-        func = self.__conditions[self.__condition_index][1]
-        call_with_args(func, self, exc_type, exc_val, exc_tb)
+    def __handle_exception(self, *sys_exc_info: SysExcInfo):
+        exc_type, exc_val, exc_tb = sys_exc_info
+        if self.__condition_index is not None:
+            func = self.__conditions[self.__condition_index][1]
+            call_with_args(func, self, exc_type, exc_val, exc_tb)
 
-    def __call__(self, func):
-
+    def __call__(self, func: Callable[P_CALL, T_CALL]) -> Callable[P_CALL, T_CALL]:
         @wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: P_CALL.args, **kwargs: P_CALL.kwargs):
             with self:
                 return func(*args, **kwargs)
 
@@ -178,10 +220,11 @@ class stacklog:
         self.__signal(Event.BEGIN)
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, *sys_exc_info: SysExcInfo):
+        exc_type, exc_val, exc_tb = sys_exc_info
         self.__signal(Event.EXIT)
 
-        if exc_type is None:
+        if exc_type is None:  # type: ignore
             self.__signal(Event.SUCCESS)
         elif self.__matches_exception(exc_type, exc_val, exc_tb):
             self.__handle_exception(exc_type, exc_val, exc_tb)
@@ -191,48 +234,62 @@ class stacklog:
         return False
 
 
-def call_with_args(func, *args):
+P_CALL_WITH_ARGS = ParamSpec("P_CALL_WITH_ARGS")
+T_CALL_WITH_ARGS = TypeVar("T_CALL_WITH_ARGS")
+
+
+def call_with_args(
+    func: Callable[P_CALL_WITH_ARGS, T_CALL_WITH_ARGS], *args  # type: ignore
+) -> T_CALL_WITH_ARGS:
     """Call a function with the number of args that it requires"""
     nargs = getnargs(func)
-    return func(*args[:nargs])
+    funcargs = args[:nargs]  # type: ignore
+    return func(*funcargs)  # type: ignore
 
 
-class Event:
-    ENTER = 'enter'
-    BEGIN = 'begin'
-    EXIT = 'exit'
-    SUCCESS = 'success'
-    FAILURE = 'failure'
-
-
-def begin(stacklogger):
+def begin(stacklogger: stacklog) -> None:
     """Log the default begin message"""
-    return stacklogger.log()
+    stacklogger.log()
 
 
-def succeed(stacklogger):
+def succeed(stacklogger: stacklog) -> None:
     """Log the default success message"""
-    return stacklogger.log(suffix=SUCCESS)
+    stacklogger.log(suffix=SUCCESS)
 
 
-def fail(stacklogger):
+def fail(stacklogger: stacklog) -> None:
     """Log the default failure message"""
-    return stacklogger.log(suffix=FAILURE)
+    stacklogger.log(suffix=FAILURE)
 
 
-def match_condition(exc_type):
+def match_condition(exc_type: type) -> Callable[[type | None], bool]:
     """Return a function that matches subclasses of ``exc_type``"""
-    return lambda _exc_type: issubclass(exc_type, _exc_type)
+    def func(_exc_type: type | None):
+        if _exc_type is None:
+            return False
+        return issubclass(_exc_type, exc_type)
+
+    return func
 
 
-def log_condition(suffix):
+def log_condition(suffix: str) -> StacklogCallbackFn:
     """Return a function that logs the given suffix."""
-    return lambda stacklogger: stacklogger.log(suffix=suffix)
+
+    def func(stacklogger: stacklog) -> None:
+        stacklogger.log(suffix=suffix)
+
+    return func
 
 
 # ---- custom stackloggers ------
 
-def stacktime(*args, **kwargs):
+
+P_STACKLOG = ParamSpec("P_STACKLOG")
+
+
+def stacktime(
+    method: StacklogMethodFn, message: str, unit: str = "auto", **kwargs
+) -> stacklog:
     """Stack log messages with timing information
 
     The same arguments apply as to stacklog, with one additional kwarg.
@@ -250,27 +307,28 @@ def stacktime(*args, **kwargs):
        Running some code...DONE in 11.11 ms
 
     """
-    unit = kwargs.pop('unit', 'auto')  # py2 compat
-    stacklogger = stacklog(*args, **kwargs)
 
-    start = None
-    duration = None
+    s = stacklog(method, message, **kwargs)
 
-    def on_enter():
-        global start
+    start: float | None = None
+    duration: str | None = None
+
+    def on_enter(_s: stacklog):
+        nonlocal start
         start = time.time()
 
-    def on_exit():
-        global duration, start
-        duration = format_time(unit, (time.time() - start))
+    def on_exit(_s: stacklog):
+        nonlocal duration, start
+        if start:
+            duration = format_time(unit, (time.time() - start))
 
-    def on_success(s):
-        global duration
-        suffix = SUCCESS + ' in ' + duration
-        s.log(suffix=suffix)
+    def on_success(_s: stacklog):
+        nonlocal duration
+        suffix = SUCCESS + " in " + duration if duration else SUCCESS
+        _s.log(suffix=suffix)
 
-    stacklogger.on_enter(on_enter)
-    stacklogger.on_exit(on_exit)
-    stacklogger.on_success(on_success)
+    s.on_enter(on_enter)
+    s.on_exit(on_exit)
+    s.on_success(on_success)
 
-    return stacklogger
+    return s

@@ -1,24 +1,24 @@
-def s2ns(sec):
+def s2ns(sec: float) -> str:
     return '%8.2f ns' % (sec * 1e9)
 
 
-def s2mks(sec):
+def s2mks(sec: float) -> str:
     return '%8.2f mks' % (sec * 1e6)
 
 
-def s2ms(sec):
+def s2ms(sec: float) -> str:
     return '%8.2f ms' % (sec * 1e3)
 
 
-def s2s(sec):
+def s2s(sec: float) -> str:
     return '%8.2f s' % sec
 
 
-def s2min(sec):
+def s2min(sec: float) -> str:
     return '%8.2f min' % (sec / 60)
 
 
-def s2auto(sec):
+def s2auto(sec: float) -> str:
     if sec < 1e-6:
         return s2ns(sec)
     elif sec < 1e-3:
@@ -41,5 +41,5 @@ TIME_FORMATTERS = {
 }
 
 
-def format_time(unit, sec):
+def format_time(unit: str, sec: float) -> str:
     return TIME_FORMATTERS[unit](sec).lstrip()

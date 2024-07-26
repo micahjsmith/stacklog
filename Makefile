@@ -1,4 +1,6 @@
 .DEFAULT_GOAL := help
+SHELL := /bin/bash
+ENVTMPDIR ?= /tmp
 
 define BROWSER_PYSCRIPT
 import os, webbrowser, sys
