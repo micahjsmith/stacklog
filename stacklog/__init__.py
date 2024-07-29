@@ -270,6 +270,7 @@ def fail(stacklogger: stacklog) -> None:
 
 def match_condition(exc_type: type) -> Callable[[type | None], bool]:
     """Return a function that matches subclasses of ``exc_type``"""
+
     def func(_exc_type: type | None):
         if _exc_type is None:
             return False

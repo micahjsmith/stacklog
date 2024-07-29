@@ -1,21 +1,21 @@
 def s2ns(sec: float) -> str:
-    return '%8.2f ns' % (sec * 1e9)
+    return "%8.2f ns" % (sec * 1e9)
 
 
 def s2mks(sec: float) -> str:
-    return '%8.2f mks' % (sec * 1e6)
+    return "%8.2f mks" % (sec * 1e6)
 
 
 def s2ms(sec: float) -> str:
-    return '%8.2f ms' % (sec * 1e3)
+    return "%8.2f ms" % (sec * 1e3)
 
 
 def s2s(sec: float) -> str:
-    return '%8.2f s' % sec
+    return "%8.2f s" % sec
 
 
 def s2min(sec: float) -> str:
-    return '%8.2f min' % (sec / 60)
+    return "%8.2f min" % (sec / 60)
 
 
 def s2auto(sec: float) -> str:
@@ -32,12 +32,12 @@ def s2auto(sec: float) -> str:
 
 
 TIME_FORMATTERS = {
-    'auto': s2auto,
-    'ns': s2ns,
-    'mks': s2mks,
-    'ms': s2ms,
-    's': s2s,
-    'min': s2min,
+    "auto": s2auto,
+    "ns": s2ns,
+    "mks": s2mks,
+    "ms": s2ms,
+    "s": s2s,
+    "min": s2min,
 }
 
 

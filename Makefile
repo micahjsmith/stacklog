@@ -44,8 +44,8 @@ test: ## run tests quickly with the default Python
 	python -m pytest --basetemp=${ENVTMPDIR} --cov=stacklog
 
 .PHONY: lint
-lint: ## check style with flake8 and isort
-	flake8 stacklog tests
+lint: ## check style with black and isort
+	black --check stacklog tests
 	isort -c stacklog tests
 
 .PHONY: install-develop
@@ -58,6 +58,7 @@ test-all: ## run tests on every Python version with tox
 
 .PHONY: fix-lint
 fix-lint: ## fix lint issues using autoflake, autopep8, and isort
+	black stacklog tests
 	autopep8 --in-place --recursive --aggressive stacklog tests
 	isort --atomic stacklog
 
