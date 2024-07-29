@@ -3,7 +3,7 @@
 
 __author__ = "Micah Smith"
 __email__ = "micahjsmith@gmail.com"
-__version__ = "2.0.0"
+__version__ = "2.0.1"
 
 import time
 import types
@@ -141,21 +141,21 @@ class stacklog:
 
         The function ``func`` takes one argument, the stacklog instance.
         """
-        self.__on(Event.BEGIN, func)
+        self.__on_event(Event.BEGIN, func)
 
     def on_success(self, func: StacklogCallbackFn) -> None:
         """Add callback for successful execution
 
         The function ``func`` takes one argument, the stacklog instance.
         """
-        self.__on(Event.SUCCESS, func)
+        self.__on_event(Event.SUCCESS, func)
 
     def on_failure(self, func: StacklogCallbackFn):
         """Add callback for failed execution
 
         The function ``func`` takes one argument, the stacklog instance.
         """
-        self.__on(Event.FAILURE, func)
+        self.__on_event(Event.FAILURE, func)
 
     def on_condition(self, match: StacklogConditionMatchFn, func: StacklogCallbackFn):
         """Add callback for failed execution
@@ -186,7 +186,7 @@ class stacklog:
         callback is intended for initializing resources that will be used
         after the block has been executed.
         """
-        self.__on(Event.ENTER, func, clear=False)
+        self.__on_event(Event.ENTER, func, clear=False)
 
     def on_exit(self, func: StacklogCallbackFn):
         """Append callback for exiting block
@@ -194,9 +194,9 @@ class stacklog:
         The function ``func`` takes one argument, the stacklog instance. This
         callback is intended for resolving or processing resources.
         """
-        self.__on(Event.EXIT, func, clear=False)
+        self.__on_event(Event.EXIT, func, clear=False)
 
-    def __on(self, event: Event, func: StacklogCallbackFn, clear: bool = True):
+    def __on_event(self, event: Event, func: StacklogCallbackFn, clear: bool = True):
         if clear:
             self.__callbacks[event].clear()
         self.__callbacks[event].append(func)
