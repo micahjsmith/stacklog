@@ -13,7 +13,7 @@ from inspect import getfullargspec
 from typing import Any, Callable, TypeVar
 
 from ._time_formatters import format_time
-from .compat import StrEnum, ParamSpec
+from .compat import ParamSpec, StrEnum
 
 __all__ = (
     "stacklog",
