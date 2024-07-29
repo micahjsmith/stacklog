@@ -12,11 +12,7 @@ with open('HISTORY.md') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'typing-extensions>=4.12.0',
-]
-
-setup_requires = [
-    'pytest-runner>=2.11.1',
+    'typing-extensions>=4.12.0;python_version<"3.10"',
 ]
 
 tests_require = [
@@ -82,8 +78,7 @@ setup(
     keywords='stacklog',
     name='stacklog',
     packages=find_packages(include=['stacklog', 'stacklog.*']),
-    python_requires='>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,!=3.7.*',
-    setup_requires=setup_requires,
+    python_requires='>=3.8.*,<3.13.*',
     test_suite='tests',
     tests_require=tests_require,
     url='https://github.com/micahjsmith/stacklog',

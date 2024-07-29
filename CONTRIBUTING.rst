@@ -124,8 +124,7 @@ Before you submit a pull request, check that it meets these guidelines:
 4. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
    feature to the documentation in an appropriate place.
-5. The pull request should work for all the supported Python versions. Check the `Travis Build
-   Status page`_ and make sure that all the checks pass.
+5. The pull request should work for all the supported Python versions.
 
 Unit Testing Guidelines
 -----------------------
@@ -190,5 +189,4 @@ Release Workflow
     make release
 
 .. _GitHub issues page: https://github.com/micahjsmith/stacklog/issues
-.. _Travis Build Status page: https://travis-ci.org/micahjsmith/stacklog/pull_requests
 .. _Google docstrings style: https://google.github.io/styleguide/pyguide.html?showone=Comments#Comments

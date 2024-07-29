@@ -1,6 +1,6 @@
 [![PyPI Shield](https://img.shields.io/pypi/v/stacklog.svg)](https://pypi.python.org/pypi/stacklog)
 [![Downloads](https://pepy.tech/badge/stacklog)](https://pepy.tech/project/stacklog)
-[![Travis CI Shield](https://travis-ci.com/micahjsmith/stacklog.svg?branch=master)](https://travis-ci.com/micahjsmith/stacklog)
+[![.github/workflows/test.yml](https://github.com/micahjsmith/stacklog/actions/workflows/test.yml/badge.svg)](https://github.com/micahjsmith/stacklog/actions/workflows/test.yml)
 
 # stacklog
 
