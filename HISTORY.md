@@ -1,5 +1,9 @@
 # History
 
+## 2.0.2 (2024-07-29)
+
+- Use poetry and pyproject.toml for all config
+
 ## 2.0.1 (2024-07-29)
 
 - Move some py3 compat inside import guards
