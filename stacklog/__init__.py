@@ -8,12 +8,12 @@ __version__ = "1.1.0"
 import time
 import types
 from collections import defaultdict
-from enum import StrEnum
 from functools import wraps
 from inspect import getfullargspec
 from typing import Any, Callable, ParamSpec, TypeVar
 
 from ._time_formatters import format_time
+from .compat import StrEnum
 
 __all__ = (
     "stacklog",
