@@ -12,7 +12,7 @@ with open('HISTORY.md') as history_file:
     history = history_file.read()
 
 install_requires = [
-    'typing-extensions>=4.12.0;python_version<"3.10"',
+    'typing-extensions>=4.12.0; python_version<"3.10"',
 ]
 
 tests_require = [
