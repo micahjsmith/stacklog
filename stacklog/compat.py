@@ -1,7 +1,12 @@
 from enum import Enum
 
 # Added in py310
-from typing_extensions import ParamSpec
+try:
+    from typing import ParamSpec
+except ImportError:
+    from typing_extensions import ParamSpec
+
+from typing import Dict, List, Tuple, Union
 
 # added in py39 (generic aliases) and py310 (| syntax)
 from typing import Tuple, List, Dict, Union
