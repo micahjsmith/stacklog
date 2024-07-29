@@ -2,16 +2,24 @@
 dist: trusty
 language: python
 python:
-  - 3.6
-  - 3.5
-  - 2.7
+  - 3.12
+  - 3.11
+  - 3.10
+  - 3.9
+  - 3.8
 
-matrix:
-  include:
-    - python: 3.7
-      dist: xenial
-    - python: 3.8
-      dist: xenial
+# matrix:
+#   include:
+#     - python: 3.8
+#       dist: xenial
+#     - python: 3.9
+#       dist: xenial
+#     - python: 3.10
+#       dist: xenial
+#     - python: 3.11
+#       dist: xenial
+#     - python: 3.12
+#       dist: xenial
 
 # Command to install dependencies
 install: pip install -U tox-travis

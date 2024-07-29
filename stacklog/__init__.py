@@ -5,17 +5,15 @@ __author__ = "Micah Smith"
 __email__ = "micahjsmith@gmail.com"
 __version__ = "1.1.0"
 
-from enum import StrEnum
-from inspect import getfullargspec
-from typing import Callable, TypeVar, ParamSpec
-import types
 import time
+import types
 from collections import defaultdict
+from enum import StrEnum
 from functools import wraps
-from typing import Any, Callable
+from inspect import getfullargspec
+from typing import Any, Callable, ParamSpec, TypeVar
 
 from ._time_formatters import format_time
-from .compat import getnargs
 
 __all__ = (
     "stacklog",
@@ -27,15 +25,23 @@ SUCCESS = "DONE"
 FAILURE = "FAILURE"
 
 
+# type if an exception is currently being handled
 SysExcInfoCurrentExc = tuple[type, BaseException, types.TracebackType]
+# type if there is no current exception
 SysExcInfoNoCurrentExc = tuple[None, None, None]
 SysExcInfo = SysExcInfoCurrentExc | SysExcInfoNoCurrentExc
+
+# type for a `condition` handler
 StacklogConditionMatchFn = (
     Callable[[type | None], bool]
     | Callable[[type | None, BaseException | None], bool]
     | Callable[[type | None, BaseException | None, types.TracebackType | None], bool]
 )
+
+# the logging method
 StacklogMethodFn = Callable[[str], Any]
+
+# a callback for any of the signals
 StacklogCallbackFn = Callable[["stacklog"], None]
 
 P_CALL = ParamSpec("P_CALL")
@@ -284,12 +290,7 @@ def log_condition(suffix: str) -> StacklogCallbackFn:
 # ---- custom stackloggers ------
 
 
-P_STACKLOG = ParamSpec("P_STACKLOG")
-
-
-def stacktime(
-    method: StacklogMethodFn, message: str, unit: str = "auto", **kwargs
-) -> stacklog:
+class stacktime(stacklog):
     """Stack log messages with timing information
 
     The same arguments apply as to stacklog, with one additional kwarg.
@@ -308,27 +309,48 @@ def stacktime(
 
     """
 
-    s = stacklog(method, message, **kwargs)
+    def __init__(
+        self, method: StacklogMethodFn, message: str, unit: str = "auto", **kwargs  # type: ignore
+    ):
+        super().__init__(method, message, **kwargs)  # type: ignore
 
-    start: float | None = None
-    duration: str | None = None
+        self.unit = unit
 
-    def on_enter(_s: stacklog):
-        nonlocal start
-        start = time.time()
+        self.start: float | None = None
+        self.end: float | None = None
 
-    def on_exit(_s: stacklog):
-        nonlocal duration, start
-        if start:
-            duration = format_time(unit, (time.time() - start))
+        def handle_enter(_s: stacklog):
+            self.start = time.time()
 
-    def on_success(_s: stacklog):
-        nonlocal duration
-        suffix = SUCCESS + " in " + duration if duration else SUCCESS
-        _s.log(suffix=suffix)
+        def handle_exit(_s: stacklog):
+            if self.start:
+                self.end = time.time()
 
-    s.on_enter(on_enter)
-    s.on_exit(on_exit)
-    s.on_success(on_success)
+        def handle_success(_s: stacklog):
+            if self.start is not None and self.end is not None:
+                duration = self.__format_time(self.end - self.start)
+                suffix = SUCCESS + " in " + duration
+            else:
+                suffix = SUCCESS
+            _s.log(suffix=suffix)
 
-    return s
+        self.on_enter(handle_enter)
+        self.on_exit(handle_exit)
+        self.on_success(handle_success)
+
+    def __format_time(self, secs: float) -> str:
+        return format_time(self.unit, secs)
+
+    @property
+    def elapsed_seconds(self) -> float:
+        now = time.time()
+        if self.start is None:
+            return 0
+        elif self.end is None:
+            return now - self.start
+        else:
+            return self.end - self.start
+
+    @property
+    def elapsed(self) -> str:
+        return self.__format_time(self.elapsed_seconds)
