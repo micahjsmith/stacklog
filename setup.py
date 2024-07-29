@@ -78,7 +78,7 @@ setup(
     keywords='stacklog',
     name='stacklog',
     packages=find_packages(include=['stacklog', 'stacklog.*']),
-    python_requires='>=3.8.*,<3.13.*',
+    python_requires='>=3.8,<3.13',
     test_suite='tests',
     tests_require=tests_require,
     url='https://github.com/micahjsmith/stacklog',
