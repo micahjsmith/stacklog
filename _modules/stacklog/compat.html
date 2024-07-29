@@ -1,80 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>stacklog.compat &mdash; stacklog 1.1.0 documentation</title>
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stacklog.compat &mdash; stacklog 2.0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
   
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=e04da888"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> stacklog
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            stacklog
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../readme.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../readme.html#overview">Overview</a></li>
@@ -93,14 +57,35 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/stacklog.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/stacklog.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/stacklog.compat.html">stacklog.compat module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/stacklog.compat.html">stacklog.compat module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.compat.html#stacklog.compat.ParamSpec"><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.compat.html#stacklog.compat.StrEnum"><code class="docutils literal notranslate"><span class="pre">StrEnum</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../api/stacklog.html#module-stacklog">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/stacklog.html#module-stacklog">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacklog"><code class="docutils literal notranslate"><span class="pre">stacklog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacklog.log"><code class="docutils literal notranslate"><span class="pre">stacklog.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacklog.on_begin"><code class="docutils literal notranslate"><span class="pre">stacklog.on_begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacklog.on_condition"><code class="docutils literal notranslate"><span class="pre">stacklog.on_condition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacklog.on_enter"><code class="docutils literal notranslate"><span class="pre">stacklog.on_enter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacklog.on_exit"><code class="docutils literal notranslate"><span class="pre">stacklog.on_exit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacklog.on_failure"><code class="docutils literal notranslate"><span class="pre">stacklog.on_failure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacklog.on_success"><code class="docutils literal notranslate"><span class="pre">stacklog.on_success()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacktime"><code class="docutils literal notranslate"><span class="pre">stacktime</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacktime.elapsed"><code class="docutils literal notranslate"><span class="pre">stacktime.elapsed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/stacklog.html#stacklog.stacktime.elapsed_seconds"><code class="docutils literal notranslate"><span class="pre">stacktime.elapsed_seconds</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a><ul>
@@ -125,135 +110,131 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../history.html#id1">1.1 (2020-03-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../history.html#id2">1.0 (2019-12-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id1">2.0.2 (2024-07-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id2">2.0.1 (2024-07-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id3">2.0 (2024-07-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id4">1.1 (2020-03-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id5">1.0 (2019-12-10)</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">stacklog</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-        
-          <li><a href="../stacklog.html">stacklog</a> &raquo;</li>
-        
-      <li>stacklog.compat</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../stacklog.html">stacklog</a></li>
+      <li class="breadcrumb-item active">stacklog.compat</li>
       <li class="wy-breadcrumbs-aside">
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for stacklog.compat</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span></span><span class="c1"># added in py39 (generic aliases) and py310 (| syntax)</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 
-
+<span class="c1"># Added in py310</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">getfullargspec</span>
-
-    <span class="k">def</span> <span class="nf">getnargs</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">getfullargspec</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">ParamSpec</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">getargspec</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">ParamSpec</span>
 
-<div class="viewcode-block" id="getnargs"><a class="viewcode-back" href="../../api/stacklog.compat.html#stacklog.compat.getnargs">[docs]</a>    <span class="k">def</span> <span class="nf">getnargs</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">getargspec</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">.</span><span class="n">args</span><span class="p">)</span></div>
+<span class="c1"># Added in py310</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">StrEnum</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+    <span class="c1"># From https://github.com/python/cpython/blob/3.12/Lib/enum.py</span>
+    <span class="k">class</span> <span class="nc">ReprEnum</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Only changes the repr(), leaving str() and format() to the mixed-in type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="StrEnum"><a class="viewcode-back" href="../../api/stacklog.compat.html#stacklog.compat.StrEnum">[docs]</a>    <span class="k">class</span> <span class="nc">StrEnum</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">ReprEnum</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enum where members are also (and must be) strings</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">values</span><span class="p">):</span>
+            <span class="s2">&quot;values must already be of type `str`&quot;</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;too many arguments for str(): </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">values</span><span class="p">,))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># it must be a string</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%r</span><span class="s2"> is not a string&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="c1"># check that encoding argument is a string</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;encoding must be a string, not </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">],))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="c1"># check that errors argument is a string</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;errors must be a string, not </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span>
+            <span class="n">member</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="n">member</span><span class="o">.</span><span class="n">_value_</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">return</span> <span class="n">member</span>
+
+        <span class="nd">@staticmethod</span>
+        <span class="k">def</span> <span class="nf">_generate_next_value_</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">last_values</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Return the lower-cased version of the member name.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
 
 
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
-    <span class="k">def</span> <span class="nf">clearlist</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-        <span class="n">l</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-<div class="viewcode-block" id="clearlist"><a class="viewcode-back" href="../../api/stacklog.compat.html#stacklog.compat.clearlist">[docs]</a>    <span class="k">def</span> <span class="nf">clearlist</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-        <span class="k">del</span> <span class="n">l</span><span class="p">[:]</span></div>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;Dict&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;List&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ParamSpec&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;StrEnum&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Tuple&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Union&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Micah Smith
-
-    </p>
+    <p>&#169; Copyright 2019, Micah Smith.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

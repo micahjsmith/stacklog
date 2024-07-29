@@ -1,80 +1,44 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>stacklog &mdash; stacklog 1.1.0 documentation</title>
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stacklog &mdash; stacklog 2.0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e04da888"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> stacklog
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            stacklog
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#overview">Overview</a></li>
@@ -93,14 +57,35 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/stacklog.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/stacklog.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/stacklog.compat.html">stacklog.compat module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/stacklog.compat.html">stacklog.compat module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.compat.html#stacklog.compat.ParamSpec"><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.compat.html#stacklog.compat.StrEnum"><code class="docutils literal notranslate"><span class="pre">StrEnum</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../api/stacklog.html#module-stacklog">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/stacklog.html#module-stacklog">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/stacklog.html#stacklog.stacklog"><code class="docutils literal notranslate"><span class="pre">stacklog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.html#stacklog.stacklog.log"><code class="docutils literal notranslate"><span class="pre">stacklog.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.html#stacklog.stacklog.on_begin"><code class="docutils literal notranslate"><span class="pre">stacklog.on_begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.html#stacklog.stacklog.on_condition"><code class="docutils literal notranslate"><span class="pre">stacklog.on_condition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.html#stacklog.stacklog.on_enter"><code class="docutils literal notranslate"><span class="pre">stacklog.on_enter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.html#stacklog.stacklog.on_exit"><code class="docutils literal notranslate"><span class="pre">stacklog.on_exit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.html#stacklog.stacklog.on_failure"><code class="docutils literal notranslate"><span class="pre">stacklog.on_failure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.html#stacklog.stacklog.on_success"><code class="docutils literal notranslate"><span class="pre">stacklog.on_success()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/stacklog.html#stacklog.stacktime"><code class="docutils literal notranslate"><span class="pre">stacktime</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.html#stacklog.stacktime.elapsed"><code class="docutils literal notranslate"><span class="pre">stacktime.elapsed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/stacklog.html#stacklog.stacktime.elapsed_seconds"><code class="docutils literal notranslate"><span class="pre">stacktime.elapsed_seconds</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
@@ -125,100 +110,111 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">1.1 (2020-03-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id2">1.0 (2019-12-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">2.0.2 (2024-07-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id2">2.0.1 (2024-07-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id3">2.0 (2024-07-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id4">1.1 (2020-03-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id5">1.0 (2019-12-10)</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">stacklog</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="index.html">Module code</a> &raquo;</li>
-        
-      <li>stacklog</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">stacklog</li>
       <li class="wy-breadcrumbs-aside">
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for stacklog</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-
 <span class="sd">&quot;&quot;&quot;Top-level package for stacklog.&quot;&quot;&quot;</span>
 
-<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Micah Smith&#39;</span>
-<span class="n">__email__</span> <span class="o">=</span> <span class="s1">&#39;micahjsmith@gmail.com&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.1.0&#39;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Micah Smith&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;micahjsmith@gmail.com&quot;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;2.0.2&quot;</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">types</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">getfullargspec</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">TypeVar</span>
 
 <span class="kn">from</span> <span class="nn">._time_formatters</span> <span class="kn">import</span> <span class="n">format_time</span>
-<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">clearlist</span><span class="p">,</span> <span class="n">getnargs</span>
+<span class="kn">from</span> <span class="nn">.compat</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">ParamSpec</span><span class="p">,</span> <span class="n">StrEnum</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;stacklog&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;stacktime&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;stacklog&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stacktime&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
 
-<span class="n">SUCCESS</span> <span class="o">=</span> <span class="s1">&#39;DONE&#39;</span>
-<span class="n">FAILURE</span> <span class="o">=</span> <span class="s1">&#39;FAILURE&#39;</span>
+<span class="n">SUCCESS</span> <span class="o">=</span> <span class="s2">&quot;DONE&quot;</span>
+<span class="n">FAILURE</span> <span class="o">=</span> <span class="s2">&quot;FAILURE&quot;</span>
+
+
+<span class="c1"># type if an exception is currently being handled</span>
+<span class="n">SysExcInfoCurrentExc</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">TracebackType</span><span class="p">]</span>
+<span class="c1"># type if there is no current exception</span>
+<span class="n">SysExcInfoNoCurrentExc</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">SysExcInfo</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">SysExcInfoCurrentExc</span><span class="p">,</span> <span class="n">SysExcInfoNoCurrentExc</span><span class="p">]</span>
+
+<span class="c1"># type for a `condition` handler</span>
+<span class="n">StacklogConditionMatchFn</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Union</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="kc">None</span><span class="p">]],</span> <span class="nb">bool</span><span class="p">],</span>
+    <span class="n">Callable</span><span class="p">[[</span><span class="n">Union</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">Union</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">,</span> <span class="kc">None</span><span class="p">]],</span> <span class="nb">bool</span><span class="p">],</span>
+    <span class="n">Callable</span><span class="p">[</span>
+        <span class="p">[</span>
+            <span class="n">Union</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="n">Union</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="n">Union</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">TracebackType</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="p">],</span>
+        <span class="nb">bool</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">]</span>
+
+<span class="c1"># the logging method</span>
+<span class="n">StacklogMethodFn</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Any</span><span class="p">]</span>
+
+<span class="c1"># a callback for any of the signals</span>
+<span class="n">StacklogCallbackFn</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="s2">&quot;stacklog&quot;</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+
+<span class="n">P_CALL</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">&quot;P_CALL&quot;</span><span class="p">)</span>
+<span class="n">T_CALL</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T_CALL&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">getnargs</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">getfullargspec</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Event</span><span class="p">(</span><span class="n">StrEnum</span><span class="p">):</span>
+    <span class="n">ENTER</span> <span class="o">=</span> <span class="s2">&quot;enter&quot;</span>
+    <span class="n">BEGIN</span> <span class="o">=</span> <span class="s2">&quot;begin&quot;</span>
+    <span class="n">EXIT</span> <span class="o">=</span> <span class="s2">&quot;exit&quot;</span>
+    <span class="n">SUCCESS</span> <span class="o">=</span> <span class="s2">&quot;success&quot;</span>
+    <span class="n">FAILURE</span> <span class="o">=</span> <span class="s2">&quot;failure&quot;</span>
 
 
 <div class="viewcode-block" id="stacklog"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog">[docs]</a><span class="k">class</span> <span class="nc">stacklog</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Stack log messages</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stack log messages</span>
 
 <span class="sd">    Example usage::</span>
 
@@ -251,12 +247,24 @@
 <span class="sd">        **kwargs: kwargs to log method</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">__callbacks</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Event</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">StacklogCallbackFn</span><span class="p">]]</span>
+    <span class="n">__conditions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">StacklogConditionMatchFn</span><span class="p">,</span> <span class="n">StacklogCallbackFn</span><span class="p">]]</span>
+    <span class="n">__condition_index</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">:</span> <span class="n">StacklogMethodFn</span><span class="p">,</span>
+        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+        <span class="n">conditions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>  <span class="c1"># type: ignore</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">conditions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">conditions</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">args</span>
-        <span class="n">conditions</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;conditions&#39;</span><span class="p">,</span> <span class="p">[])</span>  <span class="c1"># py2 compat</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">args</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>  <span class="c1"># type: ignore</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__conditions</span> <span class="o">=</span> <span class="p">[]</span>
@@ -268,38 +276,35 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">on_failure</span><span class="p">(</span><span class="n">fail</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">conditions</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">on_condition</span><span class="p">(</span>
-                <span class="n">match_condition</span><span class="p">(</span><span class="n">exc_type</span><span class="p">),</span>
-                <span class="n">log_condition</span><span class="p">(</span><span class="n">suffix</span><span class="p">)</span>
-            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">on_condition</span><span class="p">(</span><span class="n">match_condition</span><span class="p">(</span><span class="n">exc_type</span><span class="p">),</span> <span class="n">log_condition</span><span class="p">(</span><span class="n">suffix</span><span class="p">))</span>
 
-<div class="viewcode-block" id="stacklog.log"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Log a message with given suffix&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">+</span> <span class="s1">&#39;...&#39;</span> <span class="o">+</span> <span class="n">suffix</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span></div>
+<div class="viewcode-block" id="stacklog.log"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Log a message with given suffix&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span> <span class="o">+</span> <span class="n">suffix</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore</span></div>
 
-<div class="viewcode-block" id="stacklog.on_begin"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_begin">[docs]</a>    <span class="k">def</span> <span class="nf">on_begin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Add callback for beginning of block</span>
+<div class="viewcode-block" id="stacklog.on_begin"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_begin">[docs]</a>    <span class="k">def</span> <span class="nf">on_begin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">StacklogCallbackFn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add callback for beginning of block</span>
 
 <span class="sd">        The function ``func`` takes one argument, the stacklog instance.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__on</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">BEGIN</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__on_event</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">BEGIN</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="stacklog.on_success"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_success">[docs]</a>    <span class="k">def</span> <span class="nf">on_success</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Add callback for successful execution</span>
-
-<span class="sd">        The function ``func`` takes one argument, the stacklog instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__on</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="stacklog.on_failure"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_failure">[docs]</a>    <span class="k">def</span> <span class="nf">on_failure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Add callback for failed execution</span>
+<div class="viewcode-block" id="stacklog.on_success"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_success">[docs]</a>    <span class="k">def</span> <span class="nf">on_success</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">StacklogCallbackFn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add callback for successful execution</span>
 
 <span class="sd">        The function ``func`` takes one argument, the stacklog instance.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__on</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">FAILURE</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__on_event</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="stacklog.on_condition"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_condition">[docs]</a>    <span class="k">def</span> <span class="nf">on_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">match</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Add callback for failed execution</span>
+<div class="viewcode-block" id="stacklog.on_failure"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_failure">[docs]</a>    <span class="k">def</span> <span class="nf">on_failure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">StacklogCallbackFn</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add callback for failed execution</span>
+
+<span class="sd">        The function ``func`` takes one argument, the stacklog instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__on_event</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">FAILURE</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="stacklog.on_condition"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_condition">[docs]</a>    <span class="k">def</span> <span class="nf">on_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">match</span><span class="p">:</span> <span class="n">StacklogConditionMatchFn</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">StacklogCallbackFn</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add callback for failed execution</span>
 
 <span class="sd">        The first function `match` takes up to three arguments,</span>
 <span class="sd">        exc_type (``type``), exc_val (``BaseException``), and exc_tb</span>
@@ -320,48 +325,50 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__conditions</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">func</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="stacklog.on_enter"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_enter">[docs]</a>    <span class="k">def</span> <span class="nf">on_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Append callback for entering block</span>
+<div class="viewcode-block" id="stacklog.on_enter"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_enter">[docs]</a>    <span class="k">def</span> <span class="nf">on_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">StacklogCallbackFn</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Append callback for entering block</span>
 
 <span class="sd">        The function ``func`` takes one argument, the stacklog instance. This</span>
 <span class="sd">        callback is intended for initializing resources that will be used</span>
 <span class="sd">        after the block has been executed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__on</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">ENTER</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__on_event</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">ENTER</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="stacklog.on_exit"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_exit">[docs]</a>    <span class="k">def</span> <span class="nf">on_exit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Append callback for exiting block</span>
+<div class="viewcode-block" id="stacklog.on_exit"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacklog.on_exit">[docs]</a>    <span class="k">def</span> <span class="nf">on_exit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">StacklogCallbackFn</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Append callback for exiting block</span>
 
 <span class="sd">        The function ``func`` takes one argument, the stacklog instance. This</span>
 <span class="sd">        callback is intended for resolving or processing resources.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__on</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">EXIT</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__on_event</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">EXIT</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">__on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__on_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">StacklogCallbackFn</span><span class="p">,</span> <span class="n">clear</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">clear</span><span class="p">:</span>
-            <span class="n">clearlist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__signal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">condition</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">[</span><span class="n">condition</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">__signal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]:</span>
                 <span class="n">call_with_args</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__matches_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__matches_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">sys_exc_info</span><span class="p">:</span> <span class="n">SysExcInfo</span><span class="p">):</span>
+        <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span> <span class="o">=</span> <span class="n">sys_exc_info</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__conditions</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">call_with_args</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">call_with_args</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>  <span class="c1"># type: ignore</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__condition_index</span> <span class="o">=</span> <span class="n">i</span>
                 <span class="k">return</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">def</span> <span class="nf">__handle_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
-        <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__conditions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__condition_index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">call_with_args</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__handle_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">sys_exc_info</span><span class="p">:</span> <span class="n">SysExcInfo</span><span class="p">):</span>
+        <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span> <span class="o">=</span> <span class="n">sys_exc_info</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__condition_index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__conditions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__condition_index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">call_with_args</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P_CALL</span><span class="p">,</span> <span class="n">T_CALL</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P_CALL</span><span class="p">,</span> <span class="n">T_CALL</span><span class="p">]:</span>
         <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P_CALL</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P_CALL</span><span class="o">.</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="k">with</span> <span class="bp">self</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
@@ -372,10 +379,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__signal</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">BEGIN</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">sys_exc_info</span><span class="p">:</span> <span class="n">SysExcInfo</span><span class="p">):</span>
+        <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span> <span class="o">=</span> <span class="n">sys_exc_info</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__signal</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">EXIT</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">exc_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">exc_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__signal</span><span class="p">(</span><span class="n">Event</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">__matches_exception</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__handle_exception</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span>
@@ -385,49 +393,59 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 
-<span class="k">def</span> <span class="nf">call_with_args</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Call a function with the number of args that it requires&quot;&quot;&quot;</span>
+<span class="n">P_CALL_WITH_ARGS</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">&quot;P_CALL_WITH_ARGS&quot;</span><span class="p">)</span>
+<span class="n">T_CALL_WITH_ARGS</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T_CALL_WITH_ARGS&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">call_with_args</span><span class="p">(</span>
+    <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P_CALL_WITH_ARGS</span><span class="p">,</span> <span class="n">T_CALL_WITH_ARGS</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span>  <span class="c1"># type: ignore</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T_CALL_WITH_ARGS</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Call a function with the number of args that it requires&quot;&quot;&quot;</span>
     <span class="n">nargs</span> <span class="o">=</span> <span class="n">getnargs</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">[:</span><span class="n">nargs</span><span class="p">])</span>
+    <span class="n">funcargs</span> <span class="o">=</span> <span class="n">args</span><span class="p">[:</span><span class="n">nargs</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">funcargs</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
 
 
-<span class="k">class</span> <span class="nc">Event</span><span class="p">:</span>
-    <span class="n">ENTER</span> <span class="o">=</span> <span class="s1">&#39;enter&#39;</span>
-    <span class="n">BEGIN</span> <span class="o">=</span> <span class="s1">&#39;begin&#39;</span>
-    <span class="n">EXIT</span> <span class="o">=</span> <span class="s1">&#39;exit&#39;</span>
-    <span class="n">SUCCESS</span> <span class="o">=</span> <span class="s1">&#39;success&#39;</span>
-    <span class="n">FAILURE</span> <span class="o">=</span> <span class="s1">&#39;failure&#39;</span>
+<span class="k">def</span> <span class="nf">begin</span><span class="p">(</span><span class="n">stacklogger</span><span class="p">:</span> <span class="n">stacklog</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log the default begin message&quot;&quot;&quot;</span>
+    <span class="n">stacklogger</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">begin</span><span class="p">(</span><span class="n">stacklogger</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Log the default begin message&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">stacklogger</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">succeed</span><span class="p">(</span><span class="n">stacklogger</span><span class="p">:</span> <span class="n">stacklog</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log the default success message&quot;&quot;&quot;</span>
+    <span class="n">stacklogger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">SUCCESS</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">succeed</span><span class="p">(</span><span class="n">stacklogger</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Log the default success message&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">stacklogger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">SUCCESS</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">fail</span><span class="p">(</span><span class="n">stacklogger</span><span class="p">:</span> <span class="n">stacklog</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log the default failure message&quot;&quot;&quot;</span>
+    <span class="n">stacklogger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">FAILURE</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">fail</span><span class="p">(</span><span class="n">stacklogger</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Log the default failure message&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">stacklogger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">FAILURE</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">match_condition</span><span class="p">(</span><span class="n">exc_type</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Union</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="kc">None</span><span class="p">]],</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a function that matches subclasses of ``exc_type``&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">_exc_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="kc">None</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">_exc_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">_exc_type</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">func</span>
 
 
-<span class="k">def</span> <span class="nf">match_condition</span><span class="p">(</span><span class="n">exc_type</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Return a function that matches subclasses of ``exc_type``&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="n">_exc_type</span><span class="p">:</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">_exc_type</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">log_condition</span><span class="p">(</span><span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StacklogCallbackFn</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a function that logs the given suffix.&quot;&quot;&quot;</span>
 
+    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">stacklogger</span><span class="p">:</span> <span class="n">stacklog</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">stacklogger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">suffix</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">log_condition</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Return a function that logs the given suffix.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="n">stacklogger</span><span class="p">:</span> <span class="n">stacklogger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">suffix</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">func</span>
 
 
 <span class="c1"># ---- custom stackloggers ------</span>
 
-<div class="viewcode-block" id="stacktime"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacktime">[docs]</a><span class="k">def</span> <span class="nf">stacktime</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Stack log messages with timing information</span>
+
+<div class="viewcode-block" id="stacktime"><a class="viewcode-back" href="../api/stacklog.html#stacklog.stacktime">[docs]</a><span class="k">class</span> <span class="nc">stacktime</span><span class="p">(</span><span class="n">stacklog</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stack log messages with timing information</span>
 
 <span class="sd">    The same arguments apply as to stacklog, with one additional kwarg.</span>
 
@@ -444,69 +462,79 @@
 <span class="sd">       Running some code...DONE in 11.11 ms</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">unit</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;unit&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span>  <span class="c1"># py2 compat</span>
-    <span class="n">stacklogger</span> <span class="o">=</span> <span class="n">stacklog</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="n">start</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">duration</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="n">StacklogMethodFn</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>  <span class="c1"># type: ignore</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
 
-    <span class="k">def</span> <span class="nf">on_enter</span><span class="p">():</span>
-        <span class="k">global</span> <span class="n">start</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
 
-    <span class="k">def</span> <span class="nf">on_exit</span><span class="p">():</span>
-        <span class="k">global</span> <span class="n">duration</span><span class="p">,</span> <span class="n">start</span>
-        <span class="n">duration</span> <span class="o">=</span> <span class="n">format_time</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">on_success</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-        <span class="k">global</span> <span class="n">duration</span>
-        <span class="n">suffix</span> <span class="o">=</span> <span class="n">SUCCESS</span> <span class="o">+</span> <span class="s1">&#39; in &#39;</span> <span class="o">+</span> <span class="n">duration</span>
-        <span class="n">s</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">suffix</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">handle_enter</span><span class="p">(</span><span class="n">_s</span><span class="p">:</span> <span class="n">stacklog</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-    <span class="n">stacklogger</span><span class="o">.</span><span class="n">on_enter</span><span class="p">(</span><span class="n">on_enter</span><span class="p">)</span>
-    <span class="n">stacklogger</span><span class="o">.</span><span class="n">on_exit</span><span class="p">(</span><span class="n">on_exit</span><span class="p">)</span>
-    <span class="n">stacklogger</span><span class="o">.</span><span class="n">on_success</span><span class="p">(</span><span class="n">on_success</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">handle_exit</span><span class="p">(</span><span class="n">_s</span><span class="p">:</span> <span class="n">stacklog</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="n">stacklogger</span></div>
+        <span class="k">def</span> <span class="nf">handle_success</span><span class="p">(</span><span class="n">_s</span><span class="p">:</span> <span class="n">stacklog</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_time</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+                <span class="n">suffix</span> <span class="o">=</span> <span class="n">SUCCESS</span> <span class="o">+</span> <span class="s2">&quot; in &quot;</span> <span class="o">+</span> <span class="n">duration</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">suffix</span> <span class="o">=</span> <span class="n">SUCCESS</span>
+            <span class="n">_s</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">suffix</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_enter</span><span class="p">(</span><span class="n">handle_enter</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_exit</span><span class="p">(</span><span class="n">handle_exit</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_success</span><span class="p">(</span><span class="n">handle_success</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__format_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secs</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">format_time</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unit</span><span class="p">,</span> <span class="n">secs</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">elapsed_seconds</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">elapsed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_time</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elapsed_seconds</span><span class="p">)</span></div>
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Micah Smith
-
-    </p>
+    <p>&#169; Copyright 2019, Micah Smith.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

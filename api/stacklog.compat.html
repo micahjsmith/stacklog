@@ -1,82 +1,47 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>stacklog.compat module &mdash; stacklog 1.1.0 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stacklog.compat module &mdash; stacklog 2.0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e04da888"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Contributing" href="../contributing.html" />
     <link rel="prev" title="stacklog package" href="stacklog.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> stacklog
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            stacklog
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#overview">Overview</a></li>
@@ -95,14 +60,35 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="stacklog.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="stacklog.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">stacklog.compat module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">stacklog.compat module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.compat.ParamSpec"><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.compat.StrEnum"><code class="docutils literal notranslate"><span class="pre">StrEnum</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="stacklog.html#module-stacklog">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stacklog.html#module-stacklog">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stacklog.html#stacklog.stacklog"><code class="docutils literal notranslate"><span class="pre">stacklog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.html#stacklog.stacklog.log"><code class="docutils literal notranslate"><span class="pre">stacklog.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.html#stacklog.stacklog.on_begin"><code class="docutils literal notranslate"><span class="pre">stacklog.on_begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.html#stacklog.stacklog.on_condition"><code class="docutils literal notranslate"><span class="pre">stacklog.on_condition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.html#stacklog.stacklog.on_enter"><code class="docutils literal notranslate"><span class="pre">stacklog.on_enter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.html#stacklog.stacklog.on_exit"><code class="docutils literal notranslate"><span class="pre">stacklog.on_exit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.html#stacklog.stacklog.on_failure"><code class="docutils literal notranslate"><span class="pre">stacklog.on_failure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.html#stacklog.stacklog.on_success"><code class="docutils literal notranslate"><span class="pre">stacklog.on_success()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="stacklog.html#stacklog.stacktime"><code class="docutils literal notranslate"><span class="pre">stacktime</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.html#stacklog.stacktime.elapsed"><code class="docutils literal notranslate"><span class="pre">stacktime.elapsed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.html#stacklog.stacktime.elapsed_seconds"><code class="docutils literal notranslate"><span class="pre">stacktime.elapsed_seconds</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
@@ -127,154 +113,159 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">1.1 (2020-03-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id2">1.0 (2019-12-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">2.0.2 (2024-07-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id2">2.0.1 (2024-07-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id3">2.0 (2024-07-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id4">1.1 (2020-03-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id5">1.0 (2019-12-10)</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">stacklog</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="stacklog.html">stacklog package</a> &raquo;</li>
-        
-      <li>stacklog.compat module</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="stacklog.html">stacklog package</a></li>
+      <li class="breadcrumb-item active">stacklog.compat module</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/micahjsmith/stacklog/blob/master/docs/api/stacklog.compat.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-stacklog.compat">
-<span id="stacklog-compat-module"></span><h1>stacklog.compat module<a class="headerlink" href="#module-stacklog.compat" title="Permalink to this headline">¶</a></h1>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+             
+  <section id="module-stacklog.compat">
+<span id="stacklog-compat-module"></span><h1>stacklog.compat module<a class="headerlink" href="#module-stacklog.compat" title="Permalink to this heading">¶</a></h1>
+<p><strong>Classes:</strong></p>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stacklog.compat.clearlist" title="stacklog.compat.clearlist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearlist</span></code></a>(l)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stacklog.compat.ParamSpec" title="stacklog.compat.ParamSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParamSpec</span></code></a>(name, *[, bound, covariant, ...])</p></td>
+<td><p>Parameter specification variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stacklog.compat.StrEnum" title="stacklog.compat.StrEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StrEnum</span></code></a>(value)</p></td>
+<td><p>Enum where members are also (and must be) strings</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="stacklog.compat.ParamSpec">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stacklog.compat.</span></span><span class="sig-name descname"><span class="pre">ParamSpec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">covariant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contravariant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typing.html#ParamSpec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.compat.ParamSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_Final</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">_Immutable</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">_TypeVarLike</span></code></p>
+<p>Parameter specification variable.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Parameter specification variables exist primarily for the benefit of static
+type checkers.  They are used to forward the parameter types of one
+callable to another callable, a pattern commonly found in higher order
+functions and decorators.  They are only valid when used in <code class="docutils literal notranslate"><span class="pre">Concatenate</span></code>,
+or as the first argument to <code class="docutils literal notranslate"><span class="pre">Callable</span></code>, or as parameters for user-defined
+Generics.  See class Generic for more information on generic types.  An
+example for annotating a decorator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">add_logging</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">T</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;A type-safe decorator to add logging to a function.&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> was called&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="nd">@add_logging</span>
+<span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Add two numbers together.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Parameter specification variables defined with covariant=True or
+contravariant=True can be used to declare covariant or contravariant
+generic types.  These keyword arguments are valid, but their actual semantics
+are yet to be decided.  See PEP 612 for details.</p>
+<p>Parameter specification variables can be introspected. e.g.:</p>
+<blockquote>
+<div><p>P.__name__ == ‘P’
+P.__bound__ == None
+P.__covariant__ == False
+P.__contravariant__ == False</p>
+</div></blockquote>
+<p>Note that only parameter specification variables defined in global scope can
+be pickled.</p>
+<p><strong>Attributes:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stacklog.compat.ParamSpec.args" title="stacklog.compat.ParamSpec.args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">args</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#stacklog.compat.getnargs" title="stacklog.compat.getnargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getnargs</span></code></a>(func)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stacklog.compat.ParamSpec.kwargs" title="stacklog.compat.ParamSpec.kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kwargs</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="function">
-<dt id="stacklog.compat.clearlist">
-<code class="sig-prename descclassname">stacklog.compat.</code><code class="sig-name descname">clearlist</code><span class="sig-paren">(</span><em class="sig-param">l</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog/compat.html#clearlist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.compat.clearlist" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="stacklog.compat.ParamSpec.args">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#stacklog.compat.ParamSpec.args" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="stacklog.compat.getnargs">
-<code class="sig-prename descclassname">stacklog.compat.</code><code class="sig-name descname">getnargs</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog/compat.html#getnargs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.compat.getnargs" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="stacklog.compat.ParamSpec.kwargs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kwargs</span></span><a class="headerlink" href="#stacklog.compat.ParamSpec.kwargs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stacklog.compat.StrEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stacklog.compat.</span></span><span class="sig-name descname"><span class="pre">StrEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog/compat.html#StrEnum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.compat.StrEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ReprEnum</span></code></p>
+<p>Enum where members are also (and must be) strings</p>
+</dd></dl>
+
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="stacklog.html" class="btn btn-neutral float-left" title="stacklog package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stacklog.html" class="btn btn-neutral float-left" title="stacklog package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Micah Smith
-
-    </p>
+    <p>&#169; Copyright 2019, Micah Smith.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

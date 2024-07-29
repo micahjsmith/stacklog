@@ -1,82 +1,47 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>stacklog package &mdash; stacklog 1.1.0 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stacklog package &mdash; stacklog 2.0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e04da888"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="stacklog.compat module" href="stacklog.compat.html" />
     <link rel="prev" title="stacklog" href="../readme.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> stacklog
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            stacklog
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#overview">Overview</a></li>
@@ -95,14 +60,35 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="stacklog.compat.html">stacklog.compat module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stacklog.compat.html">stacklog.compat module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.compat.html#stacklog.compat.ParamSpec"><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="stacklog.compat.html#stacklog.compat.StrEnum"><code class="docutils literal notranslate"><span class="pre">StrEnum</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-stacklog">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-stacklog">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stacklog.stacklog"><code class="docutils literal notranslate"><span class="pre">stacklog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.stacklog.log"><code class="docutils literal notranslate"><span class="pre">stacklog.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.stacklog.on_begin"><code class="docutils literal notranslate"><span class="pre">stacklog.on_begin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.stacklog.on_condition"><code class="docutils literal notranslate"><span class="pre">stacklog.on_condition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.stacklog.on_enter"><code class="docutils literal notranslate"><span class="pre">stacklog.on_enter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.stacklog.on_exit"><code class="docutils literal notranslate"><span class="pre">stacklog.on_exit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.stacklog.on_failure"><code class="docutils literal notranslate"><span class="pre">stacklog.on_failure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.stacklog.on_success"><code class="docutils literal notranslate"><span class="pre">stacklog.on_success()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#stacklog.stacktime"><code class="docutils literal notranslate"><span class="pre">stacktime</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.stacktime.elapsed"><code class="docutils literal notranslate"><span class="pre">stacktime.elapsed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stacklog.stacktime.elapsed_seconds"><code class="docutils literal notranslate"><span class="pre">stacktime.elapsed_seconds</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
@@ -127,116 +113,74 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">1.1 (2020-03-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id2">1.0 (2019-12-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">2.0.2 (2024-07-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id2">2.0.1 (2024-07-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id3">2.0 (2024-07-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id4">1.1 (2020-03-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id5">1.0 (2019-12-10)</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">stacklog</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>stacklog package</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">stacklog package</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/micahjsmith/stacklog/blob/master/docs/api/stacklog.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="stacklog-package">
-<h1>stacklog package<a class="headerlink" href="#stacklog-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="stacklog-package">
+<h1>stacklog package<a class="headerlink" href="#stacklog-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="stacklog.compat.html">stacklog.compat module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stacklog.compat.html">stacklog.compat module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stacklog.compat.html#stacklog.compat.ParamSpec"><code class="docutils literal notranslate"><span class="pre">ParamSpec</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stacklog.compat.html#stacklog.compat.ParamSpec.args"><code class="docutils literal notranslate"><span class="pre">ParamSpec.args</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="stacklog.compat.html#stacklog.compat.ParamSpec.kwargs"><code class="docutils literal notranslate"><span class="pre">ParamSpec.kwargs</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stacklog.compat.html#stacklog.compat.StrEnum"><code class="docutils literal notranslate"><span class="pre">StrEnum</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
-</div>
-<div class="section" id="module-stacklog">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-stacklog" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-stacklog">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-stacklog" title="Permalink to this heading">¶</a></h2>
 <p>Top-level package for stacklog.</p>
-<p><strong>Classes</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<p><strong>Classes:</strong></p>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stacklog.stacklog" title="stacklog.stacklog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stacklog</span></code></a>(method, message, *args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stacklog.stacklog" title="stacklog.stacklog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stacklog</span></code></a>(method, message, *args[, conditions])</p></td>
 <td><p>Stack log messages</p></td>
 </tr>
-</tbody>
-</table>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#stacklog.stacktime" title="stacklog.stacktime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stacktime</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#stacklog.stacktime" title="stacklog.stacktime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stacktime</span></code></a>(method, message[, unit])</p></td>
 <td><p>Stack log messages with timing information</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="class">
-<dt id="stacklog.stacklog">
-<em class="property">class </em><code class="sig-prename descclassname">stacklog.</code><code class="sig-name descname">stacklog</code><span class="sig-paren">(</span><em class="sig-param">method</em>, <em class="sig-param">message</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.stacklog" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="stacklog.stacklog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stacklog.</span></span><span class="sig-name descname"><span class="pre">stacklog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">type</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.stacklog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Stack log messages</p>
 <p>Example usage:</p>
@@ -251,12 +195,30 @@
     <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 </pre></div>
 </div>
-<p><strong>Methods</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<p>This produces logging output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Running</span> <span class="n">long</span> <span class="n">function</span><span class="o">...</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Running</span> <span class="n">long</span> <span class="n">function</span><span class="o">...</span><span class="n">DONE</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Running</span> <span class="n">error</span><span class="o">-</span><span class="n">prone</span> <span class="n">function</span><span class="o">...</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Running</span> <span class="n">error</span><span class="o">-</span><span class="n">prone</span> <span class="n">function</span><span class="o">...</span><span class="n">FAILURE</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Skipping</span> <span class="ow">not</span> <span class="n">implemented</span><span class="o">...</span>
+<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Skipping</span> <span class="ow">not</span> <span class="n">implemented</span><span class="o">...</span><span class="n">SKIPPED</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> – log callable</p></li>
+<li><p><strong>message</strong> – log message</p></li>
+<li><p><strong>*args</strong> – right-most args to log method</p></li>
+<li><p><strong>conditions</strong> (<em>List</em><em>[</em><em>Tuple</em><em>]</em>) – list of tuples of exceptions or tuple of
+exceptions to catch and log conditions, such as
+<code class="docutils literal notranslate"><span class="pre">[(NotImplementedError,</span> <span class="pre">'SKIPPED')]</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – kwargs to log method</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#stacklog.stacklog.log" title="stacklog.stacklog.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a>([suffix])</p></td>
 <td><p>Log a message with given suffix</p></td>
@@ -281,44 +243,22 @@
 </tr>
 </tbody>
 </table>
-<p>This produces logging output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Running</span> <span class="n">long</span> <span class="n">function</span><span class="o">...</span>
-<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Running</span> <span class="n">long</span> <span class="n">function</span><span class="o">...</span><span class="n">DONE</span>
-<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Running</span> <span class="n">error</span><span class="o">-</span><span class="n">prone</span> <span class="n">function</span><span class="o">...</span>
-<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Running</span> <span class="n">error</span><span class="o">-</span><span class="n">prone</span> <span class="n">function</span><span class="o">...</span><span class="n">FAILURE</span>
-<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Skipping</span> <span class="ow">not</span> <span class="n">implemented</span><span class="o">...</span>
-<span class="n">INFO</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Skipping</span> <span class="ow">not</span> <span class="n">implemented</span><span class="o">...</span><span class="n">SKIPPED</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> – log callable</p></li>
-<li><p><strong>message</strong> – log message</p></li>
-<li><p><strong>*args</strong> – right-most args to log method</p></li>
-<li><p><strong>conditions</strong> (<em>List</em><em>[</em><em>Tuple</em><em>]</em>) – list of tuples of exceptions or tuple of
-exceptions to catch and log conditions, such as
-<code class="docutils literal notranslate"><span class="pre">[(NotImplementedError,</span> <span class="pre">'SKIPPED')]</span></code>.</p></li>
-<li><p><strong>**kwargs</strong> – kwargs to log method</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="method">
-<dt id="stacklog.stacklog.log">
-<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">suffix=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.stacklog.log" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="stacklog.stacklog.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/stacklog.html#stacklog.log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.stacklog.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log a message with given suffix</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="stacklog.stacklog.on_begin">
-<code class="sig-name descname">on_begin</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_begin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.stacklog.on_begin" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="stacklog.stacklog.on_begin">
+<span class="sig-name descname"><span class="pre">on_begin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#stacklog.stacklog" title="stacklog.stacklog"><span class="pre">stacklog</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_begin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.stacklog.on_begin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add callback for beginning of block</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">func</span></code> takes one argument, the stacklog instance.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="stacklog.stacklog.on_condition">
-<code class="sig-name descname">on_condition</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_condition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.stacklog.on_condition" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="stacklog.stacklog.on_condition">
+<span class="sig-name descname"><span class="pre">on_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">match</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">BaseException</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">BaseException</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TracebackType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#stacklog.stacklog" title="stacklog.stacklog"><span class="pre">stacklog</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_condition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.stacklog.on_condition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add callback for failed execution</p>
 <p>The first function <cite>match</cite> takes up to three arguments,
 exc_type (<code class="docutils literal notranslate"><span class="pre">type</span></code>), exc_val (<code class="docutils literal notranslate"><span class="pre">BaseException</span></code>), and exc_tb
@@ -335,46 +275,47 @@ with the first arguments they declare.</p>
 - <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.exc_info">https://docs.python.org/3/library/sys.html#sys.exc_info</a></p>
 </dd></dl>
 
-<dl class="method">
-<dt id="stacklog.stacklog.on_enter">
-<code class="sig-name descname">on_enter</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_enter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.stacklog.on_enter" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="stacklog.stacklog.on_enter">
+<span class="sig-name descname"><span class="pre">on_enter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#stacklog.stacklog" title="stacklog.stacklog"><span class="pre">stacklog</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_enter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.stacklog.on_enter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append callback for entering block</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">func</span></code> takes one argument, the stacklog instance. This
 callback is intended for initializing resources that will be used
 after the block has been executed.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="stacklog.stacklog.on_exit">
-<code class="sig-name descname">on_exit</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.stacklog.on_exit" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="stacklog.stacklog.on_exit">
+<span class="sig-name descname"><span class="pre">on_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#stacklog.stacklog" title="stacklog.stacklog"><span class="pre">stacklog</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_exit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.stacklog.on_exit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append callback for exiting block</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">func</span></code> takes one argument, the stacklog instance. This
 callback is intended for resolving or processing resources.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="stacklog.stacklog.on_failure">
-<code class="sig-name descname">on_failure</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_failure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.stacklog.on_failure" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="stacklog.stacklog.on_failure">
+<span class="sig-name descname"><span class="pre">on_failure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#stacklog.stacklog" title="stacklog.stacklog"><span class="pre">stacklog</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_failure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.stacklog.on_failure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add callback for failed execution</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">func</span></code> takes one argument, the stacklog instance.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="stacklog.stacklog.on_success">
-<code class="sig-name descname">on_success</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_success"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.stacklog.on_success" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="stacklog.stacklog.on_success">
+<span class="sig-name descname"><span class="pre">on_success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#stacklog.stacklog" title="stacklog.stacklog"><span class="pre">stacklog</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/stacklog.html#stacklog.on_success"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.stacklog.on_success" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add callback for successful execution</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">func</span></code> takes one argument, the stacklog instance.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="stacklog.stacktime">
-<code class="sig-prename descclassname">stacklog.</code><code class="sig-name descname">stacktime</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacktime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#stacklog.stacktime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stack log messages with timing information</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="stacklog.stacktime">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stacklog.</span></span><span class="sig-name descname"><span class="pre">stacktime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stacklog.html#stacktime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stacklog.stacktime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stacklog.stacklog" title="stacklog.stacklog"><code class="xref py py-class docutils literal notranslate"><span class="pre">stacklog</span></code></a></p>
+<p>Stack log messages with timing information</p>
 <p>The same arguments apply as to stacklog, with one additional kwarg.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>unit</strong> (<em>str</em>) – one of ‘auto’, ‘ns’, ‘mks’, ‘ms’, ‘s’, ‘min’. Defaults to ‘auto’.</p>
 </dd>
 </dl>
@@ -386,58 +327,61 @@ callback is intended for resolving or processing resources.</p>
 <span class="go">Running some code...DONE in 11.11 ms</span>
 </pre></div>
 </div>
+<p><strong>Attributes:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#stacklog.stacktime.elapsed" title="stacklog.stacktime.elapsed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elapsed</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#stacklog.stacktime.elapsed_seconds" title="stacklog.stacktime.elapsed_seconds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elapsed_seconds</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py property">
+<dt class="sig sig-object py" id="stacklog.stacktime.elapsed">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elapsed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#stacklog.stacktime.elapsed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="stacklog.stacktime.elapsed_seconds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elapsed_seconds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#stacklog.stacktime.elapsed_seconds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="stacklog.compat.html" class="btn btn-neutral float-right" title="stacklog.compat module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../readme.html" class="btn btn-neutral float-left" title="stacklog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../readme.html" class="btn btn-neutral float-left" title="stacklog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stacklog.compat.html" class="btn btn-neutral float-right" title="stacklog.compat module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2019, Micah Smith
-
-    </p>
+    <p>&#169; Copyright 2019, Micah Smith.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
