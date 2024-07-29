@@ -16,47 +16,47 @@ from stacklog import stacklog, stacktime
 
 def test_logs_success(caplog):
     """On normal resolution, stack with DONE is logged"""
-    msg = 'Running'
+    msg = "Running"
 
     with stacklog(logging.critical, msg):
         pass
 
-    expected = ['Running...', 'Running...DONE']
+    expected = ["Running...", "Running...DONE"]
     actual = caplog.messages
     assert actual == expected
 
 
 def test_logs_failure(caplog):
     """On error, stack with FAILURE is logged"""
-    msg = 'Running'
+    msg = "Running"
     e = ValueError
 
     with pytest.raises(e):
         with stacklog(logging.critical, msg):
             raise e
 
-    expected = ['Running...', 'Running...FAILURE']
+    expected = ["Running...", "Running...FAILURE"]
     actual = caplog.messages
     assert actual == expected
 
 
 def test_logs_custom_condition(caplog):
     """On custom error, stack with SKIPPED (e.g.) is logged"""
-    msg = 'Running'
+    msg = "Running"
     e = NotImplementedError
-    condition = (e, 'SKIPPED')
+    condition = (e, "SKIPPED")
 
     with pytest.raises(e):
         with stacklog(logging.critical, msg, conditions=[condition]):
             raise e
 
-    expected = ['Running...', 'Running...SKIPPED']
+    expected = ["Running...", "Running...SKIPPED"]
     actual = caplog.messages
     assert actual == expected
 
 
 def test_decorator(caplog):
-    msg = 'Running'
+    msg = "Running"
 
     @stacklog(logging.critical, msg)
     def run():
@@ -64,21 +64,21 @@ def test_decorator(caplog):
 
     run()
 
-    expected = ['Running...', 'Running...DONE']
+    expected = ["Running...", "Running...DONE"]
     actual = caplog.messages
     assert actual == expected
 
 
 def test_stacktime(capsys):
-    msg = 'Running'
+    msg = "Running"
 
-    @stacktime(print, msg, unit='ns')
+    @stacktime(print, msg, unit="ns")
     def run():
         time.sleep(1e-3)
 
     run()
 
-    expected = ['Running...', r'Running...DONE in [\d.]+ ns']
-    actual = capsys.readouterr().out.split('\n')
+    expected = ["Running...", r"Running...DONE in [\d.]+ ns"]
+    actual = capsys.readouterr().out.split("\n")
     for e, a in zip(expected, actual):
         assert re.match(e, a)
