@@ -77,6 +77,6 @@ setup(
     test_suite="tests",
     tests_require=tests_require,
     url="https://github.com/micahjsmith/stacklog",
-    version="1.1.0",
+    version="2.0.0",
     zip_safe=False,
 )
