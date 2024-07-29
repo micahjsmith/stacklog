@@ -55,7 +55,7 @@ test-all: ## run tests on every Python version with tox
 .PHONY: fix-lint
 fix-lint: ## fix lint issues using autopep8, and isort
 	black stacklog tests
-	autopep8 --in-place --recursive --aggressive stacklog tests
+	autopep8 --in-place --recursive --aggressive --verbose stacklog tests
 	isort --atomic stacklog
 
 .PHONY: coverage
