@@ -3,7 +3,7 @@
 
 __author__ = "Micah Smith"
 __email__ = "micahjsmith@gmail.com"
-__version__ = "2.0.1"
+__version__ = "2.0.2"
 
 import time
 import types
@@ -134,7 +134,10 @@ class stacklog:
 
     def log(self, suffix: str = "") -> None:
         """Log a message with given suffix"""
-        self.method(self.message + "..." + suffix, *self.args, **self.kwargs)  # type: ignore
+        self.method(
+            self.message + "..." + suffix,
+            *self.args,
+            **self.kwargs)  # type: ignore
 
     def on_begin(self, func: StacklogCallbackFn) -> None:
         """Add callback for beginning of block
@@ -157,7 +160,8 @@ class stacklog:
         """
         self.__on_event(Event.FAILURE, func)
 
-    def on_condition(self, match: StacklogConditionMatchFn, func: StacklogCallbackFn):
+    def on_condition(self, match: StacklogConditionMatchFn,
+                     func: StacklogCallbackFn):
         """Add callback for failed execution
 
         The first function `match` takes up to three arguments,
@@ -196,7 +200,8 @@ class stacklog:
         """
         self.__on_event(Event.EXIT, func, clear=False)
 
-    def __on_event(self, event: Event, func: StacklogCallbackFn, clear: bool = True):
+    def __on_event(self, event: Event, func: StacklogCallbackFn,
+                   clear: bool = True):
         if clear:
             self.__callbacks[event].clear()
         self.__callbacks[event].append(func)
@@ -209,7 +214,8 @@ class stacklog:
     def __matches_exception(self, *sys_exc_info: SysExcInfo):
         exc_type, exc_val, exc_tb = sys_exc_info
         for i, (match, _) in enumerate(self.__conditions):
-            if call_with_args(match, exc_type, exc_val, exc_tb):  # type: ignore
+            if call_with_args(match, exc_type, exc_val,
+                              exc_tb):  # type: ignore
                 self.__condition_index = i
                 return True
         return False
@@ -220,7 +226,8 @@ class stacklog:
             func = self.__conditions[self.__condition_index][1]
             call_with_args(func, self, exc_type, exc_val, exc_tb)
 
-    def __call__(self, func: Callable[P_CALL, T_CALL]) -> Callable[P_CALL, T_CALL]:
+    def __call__(self, func: Callable[P_CALL,
+                 T_CALL]) -> Callable[P_CALL, T_CALL]:
         @wraps(func)
         def wrapper(*args: P_CALL.args, **kwargs: P_CALL.kwargs):
             with self:

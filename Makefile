@@ -33,11 +33,7 @@ help:
 
 .PHONY: install
 install: clean-build clean-pyc ## install the package to the active Python's site-packages
-	pip install .
-
-.PHONY: install-test
-install-test: clean-build clean-pyc ## install the package and test dependencies
-	pip install .[test]
+	poetry install
 
 .PHONY: test
 test: ## run tests quickly with the default Python
@@ -50,14 +46,14 @@ lint: ## check style with black and isort
 
 .PHONY: install-develop
 install-develop: clean-build clean-pyc ## install the package in editable mode and dependencies for development
-	pip install -e .[dev]
+	poetry install --with dev
 
 .PHONY: test-all
 test-all: ## run tests on every Python version with tox
 	tox -r
 
 .PHONY: fix-lint
-fix-lint: ## fix lint issues using autoflake, autopep8, and isort
+fix-lint: ## fix lint issues using autopep8, and isort
 	black stacklog tests
 	autopep8 --in-place --recursive --aggressive stacklog tests
 	isort --atomic stacklog

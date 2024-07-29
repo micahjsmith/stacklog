@@ -68,9 +68,7 @@ Ready to contribute? Here's how to set up stacklog for local development.
    virtualenvwrapper installed, this is how you set up your fork for local
    development::
 
-    $ mkvirtualenv stacklog
-    $ cd stacklog/
-    $ make install-develop
+    $ poetry install --with dev
 
 4. Create a branch for local development::
 
@@ -174,11 +172,14 @@ Release Workflow
 
 #. Update the ``HISTORY.md`` file describing the new release.
 
-#. Update the version in ``setup.cfg``, ``stacklog/__init__.py`` and
+#. Update the version in ``pyproject.toml`` ``stacklog/__init__.py`` and
    elsewhere, and create a new git tag pointing at the corresponding commit in
    ``master`` branch::
 
-    bumpversion <type>
+    poetry self add poetry-bumpversion
+    poetry version <type>
+    git add -u
+    git commit -m "Release $(poetry version -s)"
 
 #. Push to GitHub and ensure that tests pass::
 
@@ -186,7 +187,7 @@ Release Workflow
 
 #. Create a new release on PyPI::
 
-    make release
+    poetry publish
 
 .. _GitHub issues page: https://github.com/micahjsmith/stacklog/issues
 .. _Google docstrings style: https://google.github.io/styleguide/pyguide.html?showone=Comments#Comments

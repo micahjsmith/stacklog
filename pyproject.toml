@@ -1,0 +1,115 @@
+[tool.poetry]
+package-mode = true
+name = "stacklog"
+version = "2.0.2"
+description = "Stack log messages"
+authors = ["Micah Smith <micahjsmith@gmail.com>"]
+license = "MIT license"
+readme = ["README.md", "HISTORY.md"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = ["stacklog", "logging"]
+packages = [{ include = "stacklog" }]
+repository = "https://github.com/micahjsmith/stacklog"
+documentation = "https://micahjsmith.github.io/stacklog/"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.13"
+
+typing-extensions = { version = ">=4.12.0", python = "<3.10" }
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+
+# tests
+pytest = ">=3.4.2"
+pytest-cov = ">=2.6.0"
+
+# general
+bumpversion = ">=0.5.3"
+pip = ">=9.0.1"
+watchdog = ">=0.8.3"
+
+# docs
+m2r = ">=0.2.0"
+Sphinx = ">=1.7.1"
+sphinx_rtd_theme = ">=0.2.4"
+autodocsumm = ">=0.1.10"
+
+# style check
+black = ">=24.4.2"
+isort = ">=4.3.4"
+autopep8 = ">=1.4.3"
+
+# Advanced testing
+coverage = ">=4.5.1"
+tox = ">=2.9.1"
+
+[tool.poetry_bumpversion.file."stacklog/__init__.py"]
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
+[tool.isort]
+profile = "black"
+line_length = 99
+lines_between_types = 0
+multi_line_output = 4
+skip = ["stacklog/compat.py"]
+
+[tool.tox]
+legacy_tox_ini = """
+    [tox]
+    envlist = py38, py39, py310, py311, py312, lint, docs
+
+
+    [gh-actions]
+    python =
+        3.12: py312
+        3.11: py311, docs, lint
+        3.10: py310
+        3.9: py39
+        3.8: py38
+
+
+    [testenv]
+    allowlist_externals = make
+    passenv = CI
+    setenv =
+        PYTHONPATH = {toxinidir}
+    extras = test
+    commands =
+        make test
+
+
+    [testenv:lint]
+    allowlist_externals = make
+    skipsdist = true
+    extras = dev
+    commands =
+        make lint
+
+
+    [testenv:docs]
+    allowlist_externals = make
+    skipsdist = true
+    extras = dev
+    commands =
+        make docs
+"""
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
