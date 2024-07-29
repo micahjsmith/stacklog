@@ -107,7 +107,7 @@ legacy_tox_ini = """
         make lint
 
     [testenv:docs]
-    allowlist_externals = make, poetry, sphinx-apidoc
+    allowlist_externals = make, poetry, python
     skipsdist = true
     commands =
         make docs
