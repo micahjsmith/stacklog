@@ -1,5 +1,5 @@
 # added in py39 (generic aliases) and py310 (| syntax)
-from typing import Tuple, List, Dict, Union
+from typing import Dict, List, Tuple, Union
 
 # Added in py310
 try:

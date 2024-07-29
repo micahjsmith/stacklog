@@ -135,9 +135,8 @@ class stacklog:
     def log(self, suffix: str = "") -> None:
         """Log a message with given suffix"""
         self.method(
-            self.message + "..." + suffix,
-            *self.args,
-            **self.kwargs)  # type: ignore
+            self.message + "..." + suffix, *self.args, **self.kwargs
+        )  # type: ignore
 
     def on_begin(self, func: StacklogCallbackFn) -> None:
         """Add callback for beginning of block
