@@ -3,9 +3,16 @@ from enum import Enum
 # Added in py310
 from typing_extensions import ParamSpec
 
+# added in py39 (generic aliases) and py310 (| syntax)
+from typing import Tuple, List, Dict, Union
+
 __all__ = (
+    "Dict",
+    "List",
     "ParamSpec",
     "StrEnum",
+    "Tuple",
+    "Union",
 )
 
 

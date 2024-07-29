@@ -13,7 +13,7 @@ from inspect import getfullargspec
 from typing import Any, Callable, TypeVar
 
 from ._time_formatters import format_time
-from .compat import ParamSpec, StrEnum
+from .compat import Dict, List, ParamSpec, StrEnum, Tuple, Union
 
 __all__ = (
     "stacklog",
@@ -26,17 +26,24 @@ FAILURE = "FAILURE"
 
 
 # type if an exception is currently being handled
-SysExcInfoCurrentExc = tuple[type, BaseException, types.TracebackType]
+SysExcInfoCurrentExc = Tuple[type, BaseException, types.TracebackType]
 # type if there is no current exception
-SysExcInfoNoCurrentExc = tuple[None, None, None]
-SysExcInfo = SysExcInfoCurrentExc | SysExcInfoNoCurrentExc
+SysExcInfoNoCurrentExc = Tuple[None, None, None]
+SysExcInfo = Union[SysExcInfoCurrentExc, SysExcInfoNoCurrentExc]
 
 # type for a `condition` handler
-StacklogConditionMatchFn = (
-    Callable[[type | None], bool]
-    | Callable[[type | None, BaseException | None], bool]
-    | Callable[[type | None, BaseException | None, types.TracebackType | None], bool]
-)
+StacklogConditionMatchFn = Union[
+    Callable[[Union[type, None]], bool],
+    Callable[[Union[type, None], Union[BaseException, None]], bool],
+    Callable[
+        [
+            Union[type, None],
+            Union[BaseException, None],
+            Union[types.TracebackType, None],
+        ],
+        bool,
+    ],
+]
 
 # the logging method
 StacklogMethodFn = Callable[[str], Any]
@@ -94,16 +101,16 @@ class stacklog:
         **kwargs: kwargs to log method
     """
 
-    __callbacks: dict[Event, list[StacklogCallbackFn]]
-    __conditions: list[tuple[StacklogConditionMatchFn, StacklogCallbackFn]]
-    __condition_index: int | None
+    __callbacks: Dict[Event, List[StacklogCallbackFn]]
+    __conditions: List[Tuple[StacklogConditionMatchFn, StacklogCallbackFn]]
+    __condition_index: Union[int, None]
 
     def __init__(
         self,
         method: StacklogMethodFn,
         message: str,
         *args,  # type: ignore
-        conditions: list[tuple[type, str]] | None = None,
+        conditions: Union[List[Tuple[type, str]], None] = None,
         **kwargs  # type: ignore
     ):
         if conditions is None:
@@ -268,10 +275,10 @@ def fail(stacklogger: stacklog) -> None:
     stacklogger.log(suffix=FAILURE)
 
 
-def match_condition(exc_type: type) -> Callable[[type | None], bool]:
+def match_condition(exc_type: type) -> Callable[[Union[type, None]], bool]:
     """Return a function that matches subclasses of ``exc_type``"""
 
-    def func(_exc_type: type | None):
+    def func(_exc_type: Union[type, None]):
         if _exc_type is None:
             return False
         return issubclass(_exc_type, exc_type)
@@ -317,8 +324,8 @@ class stacktime(stacklog):
 
         self.unit = unit
 
-        self.start: float | None = None
-        self.end: float | None = None
+        self.start: Union[float, None] = None
+        self.end: Union[float, None] = None
 
         def handle_enter(_s: stacklog):
             self.start = time.time()
