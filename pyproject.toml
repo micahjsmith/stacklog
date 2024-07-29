@@ -70,7 +70,12 @@ multi_line_output = 4
 [tool.tox]
 legacy_tox_ini = """
     [tox]
-    envlist = py38, py39, py310, py311, py312, lint, docs
+    requires =
+        tox>=4
+    envlist =
+        py{38,39,310,311,312}
+        lint
+        docs
 
     [gh-actions]
     python =

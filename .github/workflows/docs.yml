@@ -1,4 +1,5 @@
-name: GitHub Pages
+name: Publish docs
+
 on:
   push:
     branches:
@@ -8,18 +9,19 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v1
+      - name: Install poetry
+        run: pipx install poetry>=1.8.3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
-          architecture: 'x64'
+          python-version: 3.11
 
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
-          make install-develop
+          poetry install --with dev
 
       - run: make docs
 
