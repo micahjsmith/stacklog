@@ -1,5 +1,13 @@
 from enum import Enum
 
+# Added in py310
+from typing_extensions import ParamSpec
+
+__all__ = (
+    "ParamSpec",
+    "StrEnum",
+)
+
 
 class ReprEnum(Enum):
     """
@@ -8,6 +16,7 @@ class ReprEnum(Enum):
 
 
 # From https://github.com/python/cpython/blob/3.12/Lib/enum.py
+# Added in py310
 class StrEnum(str, ReprEnum):
     """
     Enum where members are also (and must be) strings

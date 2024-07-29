@@ -10,10 +10,10 @@ import types
 from collections import defaultdict
 from functools import wraps
 from inspect import getfullargspec
-from typing import Any, Callable, ParamSpec, TypeVar
+from typing import Any, Callable, TypeVar
 
 from ._time_formatters import format_time
-from .compat import StrEnum
+from .compat import StrEnum, ParamSpec
 
 __all__ = (
     "stacklog",
