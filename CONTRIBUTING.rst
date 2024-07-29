@@ -180,6 +180,7 @@ Release Workflow
     poetry version <type>
     git add -u
     git commit -m "Release $(poetry version -s)"
+    git tag "v$(poetry version -s)"
 
 #. Push to GitHub and ensure that tests pass::
 
